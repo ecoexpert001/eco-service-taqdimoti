@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T16:51:07.219Z",
+  "title": "Design System: ECO SERVICE · The journey of one application",
+  "extensions": {
+    "colorMeta": {
+      "cyan-hi": {
+        "role": "primary",
+        "displayName": "Lit Cyan",
+        "tonalRamp": [
+          "oklch(15% 0.038 209.6)",
+          "oklch(26.4% 0.072 209.6)",
+          "oklch(37.9% 0.095 209.6)",
+          "oklch(49.3% 0.107 209.6)",
+          "oklch(60.7% 0.107 209.6)",
+          "oklch(72.1% 0.095 209.6)",
+          "oklch(83.6% 0.072 209.6)",
+          "oklch(95% 0.038 209.6)"
+        ]
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "Shield Cyan",
+        "tonalRamp": [
+          "oklch(15% 0.042 211.9)",
+          "oklch(26.4% 0.08 211.9)",
+          "oklch(37.9% 0.105 211.9)",
+          "oklch(49.3% 0.118 211.9)",
+          "oklch(60.7% 0.118 211.9)",
+          "oklch(72.1% 0.105 211.9)",
+          "oklch(83.6% 0.08 211.9)",
+          "oklch(95% 0.042 211.9)"
+        ]
+      },
+      "now-fill": {
+        "role": "primary",
+        "displayName": "Deep Station Cyan",
+        "tonalRamp": [
+          "oklch(15% 0.014 213.5)",
+          "oklch(26.4% 0.028 213.5)",
+          "oklch(37.9% 0.036 213.5)",
+          "oklch(49.3% 0.041 213.5)",
+          "oklch(60.7% 0.041 213.5)",
+          "oklch(72.1% 0.036 213.5)",
+          "oklch(83.6% 0.028 213.5)",
+          "oklch(95% 0.014 213.5)"
+        ]
+      },
+      "on-cyan": {
+        "role": "primary",
+        "displayName": "Ink on Cyan",
+        "tonalRamp": [
+          "oklch(15% 0.015 212.5)",
+          "oklch(26.4% 0.029 212.5)",
+          "oklch(37.9% 0.038 212.5)",
+          "oklch(49.3% 0.043 212.5)",
+          "oklch(60.7% 0.043 212.5)",
+          "oklch(72.1% 0.038 212.5)",
+          "oklch(83.6% 0.029 212.5)",
+          "oklch(95% 0.015 212.5)"
+        ]
+      },
+      "leaf": {
+        "role": "secondary",
+        "displayName": "Shield Leaf",
+        "tonalRamp": [
+          "oklch(15% 0.05 130.8)",
+          "oklch(26.4% 0.096 130.8)",
+          "oklch(37.9% 0.127 130.8)",
+          "oklch(49.3% 0.142 130.8)",
+          "oklch(60.7% 0.142 130.8)",
+          "oklch(72.1% 0.127 130.8)",
+          "oklch(83.6% 0.096 130.8)",
+          "oklch(95% 0.05 130.8)"
+        ]
+      },
+      "leaf-ink": {
+        "role": "secondary",
+        "displayName": "Deep Leaf",
+        "tonalRamp": [
+          "oklch(15% 0.05 135.7)",
+          "oklch(26.4% 0.095 135.7)",
+          "oklch(37.9% 0.125 135.7)",
+          "oklch(49.3% 0.14 135.7)",
+          "oklch(60.7% 0.14 135.7)",
+          "oklch(72.1% 0.125 135.7)",
+          "oklch(83.6% 0.095 135.7)",
+          "oklch(95% 0.05 135.7)"
+        ]
+      },
+      "done-fill": {
+        "role": "secondary",
+        "displayName": "Deep Station Leaf",
+        "tonalRamp": [
+          "oklch(15% 0.017 134.3)",
+          "oklch(26.4% 0.032 134.3)",
+          "oklch(37.9% 0.042 134.3)",
+          "oklch(49.3% 0.048 134.3)",
+          "oklch(60.7% 0.048 134.3)",
+          "oklch(72.1% 0.042 134.3)",
+          "oklch(83.6% 0.032 134.3)",
+          "oklch(95% 0.017 134.3)"
+        ]
+      },
+      "on-leaf": {
+        "role": "secondary",
+        "displayName": "Ink on Leaf",
+        "tonalRamp": [
+          "oklch(15% 0.015 133)",
+          "oklch(26.4% 0.029 133)",
+          "oklch(37.9% 0.038 133)",
+          "oklch(49.3% 0.042 133)",
+          "oklch(60.7% 0.042 133)",
+          "oklch(72.1% 0.038 133)",
+          "oklch(83.6% 0.029 133)",
+          "oklch(95% 0.015 133)"
+        ]
+      },
+      "amber": {
+        "role": "tertiary",
+        "displayName": "Waiting Amber",
+        "tonalRamp": [
+          "oklch(15% 0.046 79.1)",
+          "oklch(26.4% 0.088 79.1)",
+          "oklch(37.9% 0.117 79.1)",
+          "oklch(49.3% 0.131 79.1)",
+          "oklch(60.7% 0.131 79.1)",
+          "oklch(72.1% 0.117 79.1)",
+          "oklch(83.6% 0.088 79.1)",
+          "oklch(95% 0.046 79.1)"
+        ]
+      },
+      "amber-ink": {
+        "role": "tertiary",
+        "displayName": "Deep Amber",
+        "tonalRamp": [
+          "oklch(15% 0.044 76.5)",
+          "oklch(26.4% 0.084 76.5)",
+          "oklch(37.9% 0.11 76.5)",
+          "oklch(49.3% 0.123 76.5)",
+          "oklch(60.7% 0.123 76.5)",
+          "oklch(72.1% 0.11 76.5)",
+          "oklch(83.6% 0.084 76.5)",
+          "oklch(95% 0.044 76.5)"
+        ]
+      },
+      "on-amber": {
+        "role": "tertiary",
+        "displayName": "Ink on Amber",
+        "tonalRamp": [
+          "oklch(15% 0.016 75.1)",
+          "oklch(26.4% 0.031 75.1)",
+          "oklch(37.9% 0.04 75.1)",
+          "oklch(49.3% 0.045 75.1)",
+          "oklch(60.7% 0.045 75.1)",
+          "oklch(72.1% 0.04 75.1)",
+          "oklch(83.6% 0.031 75.1)",
+          "oklch(95% 0.016 75.1)"
+        ]
+      },
+      "coral": {
+        "role": "tertiary",
+        "displayName": "Returned Coral",
+        "tonalRamp": [
+          "oklch(15% 0.051 33)",
+          "oklch(26.4% 0.098 33)",
+          "oklch(37.9% 0.129 33)",
+          "oklch(49.3% 0.145 33)",
+          "oklch(60.7% 0.145 33)",
+          "oklch(72.1% 0.129 33)",
+          "oklch(83.6% 0.098 33)",
+          "oklch(95% 0.051 33)"
+        ]
+      },
+      "back-fill": {
+        "role": "tertiary",
+        "displayName": "Deep Station Coral",
+        "tonalRamp": [
+          "oklch(15% 0.016 34.1)",
+          "oklch(26.4% 0.03 34.1)",
+          "oklch(37.9% 0.039 34.1)",
+          "oklch(49.3% 0.044 34.1)",
+          "oklch(60.7% 0.044 34.1)",
+          "oklch(72.1% 0.039 34.1)",
+          "oklch(83.6% 0.03 34.1)",
+          "oklch(95% 0.016 34.1)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "tonalRamp": [
+          "oklch(15% 0.004 250.2)",
+          "oklch(26.4% 0.008 250.2)",
+          "oklch(37.9% 0.011 250.2)",
+          "oklch(49.3% 0.012 250.2)",
+          "oklch(60.7% 0.012 250.2)",
+          "oklch(72.1% 0.011 250.2)",
+          "oklch(83.6% 0.008 250.2)",
+          "oklch(95% 0.004 250.2)"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Sheet Slate",
+        "tonalRamp": [
+          "oklch(15% 0.006 248.9)",
+          "oklch(26.4% 0.012 248.9)",
+          "oklch(37.9% 0.016 248.9)",
+          "oklch(49.3% 0.018 248.9)",
+          "oklch(60.7% 0.018 248.9)",
+          "oklch(72.1% 0.016 248.9)",
+          "oklch(83.6% 0.012 248.9)",
+          "oklch(95% 0.006 248.9)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Glass Panel",
+        "tonalRamp": [
+          "oklch(15% 0.005 252.7)",
+          "oklch(26.4% 0.01 252.7)",
+          "oklch(37.9% 0.013 252.7)",
+          "oklch(49.3% 0.015 252.7)",
+          "oklch(60.7% 0.015 252.7)",
+          "oklch(72.1% 0.013 252.7)",
+          "oklch(83.6% 0.01 252.7)",
+          "oklch(95% 0.005 252.7)"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Solid Panel",
+        "tonalRamp": [
+          "oklch(15% 0.006 248.9)",
+          "oklch(26.4% 0.012 248.9)",
+          "oklch(37.9% 0.016 248.9)",
+          "oklch(49.3% 0.018 248.9)",
+          "oklch(60.7% 0.018 248.9)",
+          "oklch(72.1% 0.016 248.9)",
+          "oklch(83.6% 0.012 248.9)",
+          "oklch(95% 0.006 248.9)"
+        ]
+      },
+      "hair": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "oklch(15% 0.021 223.8)",
+          "oklch(26.4% 0.041 223.8)",
+          "oklch(37.9% 0.054 223.8)",
+          "oklch(49.3% 0.061 223.8)",
+          "oklch(60.7% 0.061 223.8)",
+          "oklch(72.1% 0.054 223.8)",
+          "oklch(83.6% 0.041 223.8)",
+          "oklch(95% 0.021 223.8)"
+        ]
+      },
+      "hair-2": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "tonalRamp": [
+          "oklch(15% 0.021 223.8)",
+          "oklch(26.4% 0.041 223.8)",
+          "oklch(37.9% 0.054 223.8)",
+          "oklch(49.3% 0.061 223.8)",
+          "oklch(60.7% 0.061 223.8)",
+          "oklch(72.1% 0.054 223.8)",
+          "oklch(83.6% 0.041 223.8)",
+          "oklch(95% 0.021 223.8)"
+        ]
+      },
+      "track": {
+        "role": "neutral",
+        "displayName": "Track",
+        "tonalRamp": [
+          "oklch(15% 0.021 223.8)",
+          "oklch(26.4% 0.041 223.8)",
+          "oklch(37.9% 0.054 223.8)",
+          "oklch(49.3% 0.061 223.8)",
+          "oklch(60.7% 0.061 223.8)",
+          "oklch(72.1% 0.054 223.8)",
+          "oklch(83.6% 0.041 223.8)",
+          "oklch(95% 0.021 223.8)"
+        ]
+      },
+      "ring-idle": {
+        "role": "neutral",
+        "displayName": "Idle Ring",
+        "tonalRamp": [
+          "oklch(15% 0.021 223.8)",
+          "oklch(26.4% 0.041 223.8)",
+          "oklch(37.9% 0.054 223.8)",
+          "oklch(49.3% 0.061 223.8)",
+          "oklch(60.7% 0.061 223.8)",
+          "oklch(72.1% 0.054 223.8)",
+          "oklch(83.6% 0.041 223.8)",
+          "oklch(95% 0.021 223.8)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Frost Ink",
+        "tonalRamp": [
+          "oklch(15% 0.004 228.9)",
+          "oklch(26.4% 0.008 228.9)",
+          "oklch(37.9% 0.011 228.9)",
+          "oklch(49.3% 0.012 228.9)",
+          "oklch(60.7% 0.012 228.9)",
+          "oklch(72.1% 0.011 228.9)",
+          "oklch(83.6% 0.008 228.9)",
+          "oklch(95% 0.004 228.9)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Mist Ink",
+        "tonalRamp": [
+          "oklch(15% 0.007 233.9)",
+          "oklch(26.4% 0.014 233.9)",
+          "oklch(37.9% 0.018 233.9)",
+          "oklch(49.3% 0.021 233.9)",
+          "oklch(60.7% 0.021 233.9)",
+          "oklch(72.1% 0.018 233.9)",
+          "oklch(83.6% 0.014 233.9)",
+          "oklch(95% 0.007 233.9)"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Haze Ink",
+        "tonalRamp": [
+          "oklch(15% 0.009 234.7)",
+          "oklch(26.4% 0.018 234.7)",
+          "oklch(37.9% 0.023 234.7)",
+          "oklch(49.3% 0.026 234.7)",
+          "oklch(60.7% 0.026 234.7)",
+          "oklch(72.1% 0.023 234.7)",
+          "oklch(83.6% 0.018 234.7)",
+          "oklch(95% 0.009 234.7)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Official Paper",
+        "tonalRamp": [
+          "oklch(15% 0.004 228.9)",
+          "oklch(26.4% 0.008 228.9)",
+          "oklch(37.9% 0.011 228.9)",
+          "oklch(49.3% 0.012 228.9)",
+          "oklch(60.7% 0.012 228.9)",
+          "oklch(72.1% 0.011 228.9)",
+          "oklch(83.6% 0.008 228.9)",
+          "oklch(95% 0.004 228.9)"
+        ]
+      },
+      "paper-ink-2": {
+        "role": "neutral",
+        "displayName": "Paper Gray",
+        "tonalRamp": [
+          "oklch(15% 0.008 229.6)",
+          "oklch(26.4% 0.016 229.6)",
+          "oklch(37.9% 0.021 229.6)",
+          "oklch(49.3% 0.024 229.6)",
+          "oklch(60.7% 0.024 229.6)",
+          "oklch(72.1% 0.021 229.6)",
+          "oklch(83.6% 0.016 229.6)",
+          "oklch(95% 0.008 229.6)"
+        ]
+      },
+      "night-mask": {
+        "role": "neutral",
+        "displayName": "Night Mask",
+        "tonalRamp": [
+          "oklch(15% 0.004 238.4)",
+          "oklch(26.4% 0.008 238.4)",
+          "oklch(37.9% 0.011 238.4)",
+          "oklch(49.3% 0.012 238.4)",
+          "oklch(60.7% 0.012 238.4)",
+          "oklch(72.1% 0.011 238.4)",
+          "oklch(83.6% 0.008 238.4)",
+          "oklch(95% 0.004 238.4)"
+        ]
+      },
+      "horizon": {
+        "role": "neutral",
+        "displayName": "Horizon Teal",
+        "tonalRamp": [
+          "oklch(15% 0.018 222.1)",
+          "oklch(26.4% 0.034 222.1)",
+          "oklch(37.9% 0.045 222.1)",
+          "oklch(49.3% 0.05 222.1)",
+          "oklch(60.7% 0.05 222.1)",
+          "oklch(72.1% 0.045 222.1)",
+          "oklch(83.6% 0.034 222.1)",
+          "oklch(95% 0.018 222.1)"
+        ]
+      },
+      "boundary": {
+        "role": "neutral",
+        "displayName": "Far Boundary",
+        "tonalRamp": [
+          "oklch(15% 0.016 225.2)",
+          "oklch(26.4% 0.03 225.2)",
+          "oklch(37.9% 0.039 225.2)",
+          "oklch(49.3% 0.044 225.2)",
+          "oklch(60.7% 0.044 225.2)",
+          "oklch(72.1% 0.039 225.2)",
+          "oklch(83.6% 0.03 225.2)",
+          "oklch(95% 0.016 225.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "ECO SERVICE on the opening and closing steps."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The centered statement over the open map."
+      },
+      "headline-sm": {
+        "displayName": "Headline Small",
+        "purpose": "The top-anchored heading above the eight-station overview and the finale."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Every narrative card heading."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The hero's one line under the wordmark."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Card sentences; 1.4rem centered and 1.3rem top-anchored over the open map."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Station names in diagrams; sheet, panel and row titles at 0.95-1.05rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Sub-lines under station names and sheet titles; map tags."
+      },
+      "chip": {
+        "displayName": "Chip",
+        "purpose": "Chips; progress pills run at 0.74rem."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "The source or illustration note at a card's foot."
+      },
+      "paper-title": {
+        "displayName": "Paper Title",
+        "purpose": "The capitalized title of an official paper."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Martian Mono for values the system holds: application number, coordinates, counter, numerals, score."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-hang",
+        "value": "0 2.4rem 5rem -2.6rem rgba(0, 0, 0, 0.9), 0 0.8rem 1.6rem -1rem rgba(0, 0, 0, 0.6)",
+        "purpose": "The narrative card, paired with backdrop-filter: blur(14px) saturate(1.15)."
+      },
+      {
+        "name": "sheet-hang",
+        "value": "0 2.6rem 5rem -2.6rem rgba(0, 0, 0, 0.95), 0 1rem 2.2rem -1.4rem rgba(0, 0, 0, 0.7)",
+        "purpose": "Dark system sheets."
+      },
+      {
+        "name": "paper-hang",
+        "value": "0 2.2rem 4.4rem -1.8rem rgba(0, 0, 0, 0.9), 0 0.4rem 1rem -0.4rem rgba(0, 0, 0, 0.6)",
+        "purpose": "Official papers; the tight second layer gives the sheet a physical edge."
+      },
+      {
+        "name": "panel-hang",
+        "value": "0 2rem 4rem -2.4rem rgba(0, 0, 0, 0.9)",
+        "purpose": "Side panels inside a visual."
+      },
+      {
+        "name": "tag-lift",
+        "value": "0 0.6rem 1.8rem -0.6rem rgba(0, 0, 0, 0.8)",
+        "purpose": "Map tags."
+      },
+      {
+        "name": "now-halo",
+        "value": "0 0 0 0.4rem rgba(98, 215, 234, 0.14), 0 0 1.4rem rgba(98, 215, 234, 0.6)",
+        "purpose": "The current rail station; larger stations widen the ring to 6-7px."
+      },
+      {
+        "name": "line-glow",
+        "value": "0 0 12px rgba(98, 215, 234, 0.55)",
+        "purpose": "The rail fill; SVG routes use drop-shadow(0 0 6px rgba(98, 215, 234, 0.55)), leaf and coral routes their own hue at 0.5."
+      },
+      {
+        "name": "pulse-core",
+        "value": "0 0 0.8rem 0.2rem rgba(98, 215, 234, 0.75)",
+        "purpose": "The core of the application's pulse on the map (leaf variant at 0.7)."
+      },
+      {
+        "name": "choice-glow",
+        "value": "0 0.6rem 1.8rem -0.6rem rgba(150, 201, 98, 0.65)",
+        "purpose": "The selected decision option."
+      },
+      {
+        "name": "verdict-select",
+        "value": "0 0 0 1px #96c962, 0 1.4rem 3rem -1.4rem rgba(150, 201, 98, 0.55)",
+        "purpose": "The director's chosen verdict tile."
+      },
+      {
+        "name": "map-text-halo",
+        "value": "0 0 0.5rem #05080c, 0 0 1.2rem #05080c",
+        "purpose": "text-shadow for text sitting straight on the map; the counter and mark use 0.6rem and 1.4rem."
+      },
+      {
+        "name": "statement-shadow",
+        "value": "0 2px 28px rgba(0, 0, 0, 0.65)",
+        "purpose": "text-shadow for centered and top-anchored statements over the open map."
+      },
+      {
+        "name": "crest-halo",
+        "value": "drop-shadow(0 0.8rem 2.4rem rgba(34, 184, 208, 0.3))",
+        "purpose": "filter on the hero crest."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "House curve for CSS state changes: chrome fades 0.8s, rail 0.9s, rail fill 1.2s, station states 0.6s, marker reveals 0.7-0.9s."
+      },
+      {
+        "name": "card-enter",
+        "value": "0.8s expo.out from y 18px; children 1.05s expo.out from y 20px and blur(8px), stagger 0.08s",
+        "purpose": "A step's narrative card arriving."
+      },
+      {
+        "name": "card-exit",
+        "value": "0.36s power2.in to y -14px, blur(6px), opacity 0",
+        "purpose": "The previous card leaving."
+      },
+      {
+        "name": "visual-exit",
+        "value": "0.4s power2.in to y -16px, blur(8px), opacity 0",
+        "purpose": "A visual leaving when the next step changes its type."
+      },
+      {
+        "name": "pop",
+        "value": "0.7s expo.out from y 14px, stagger 0.08s; nodes back.out(1.7), chips back.out(2)",
+        "purpose": "Elements joining a visual."
+      },
+      {
+        "name": "line-draw",
+        "value": "stroke-dashoffset 0.8-1.3s power2.inOut; the token rides the same path, power1.inOut",
+        "purpose": "Routes drawing on in transit diagrams."
+      },
+      {
+        "name": "camera-flight",
+        "value": "flyTo 4200ms, curve 1.3 (per step 3000-5400ms)",
+        "purpose": "Flights between named cameras."
+      },
+      {
+        "name": "camera-follow",
+        "value": "flyTo 2800ms",
+        "purpose": "Cameras that follow the application along its route."
+      },
+      {
+        "name": "map-paint",
+        "value": "1.6s power2.inOut",
+        "purpose": "Layer opacity and saturation changes between steps."
+      },
+      {
+        "name": "route-grow",
+        "value": "2.6s power2.inOut after 0.35s (3.2s when the head travels the whole route)",
+        "purpose": "The route extending stage by stage."
+      },
+      {
+        "name": "ambient-sway",
+        "value": "bearing within drift x 8 degrees, 46s sine",
+        "purpose": "Keeps a landed camera alive; off under reduced motion and ?still."
+      },
+      {
+        "name": "pulse-ping",
+        "value": "2.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite, scale 1 to 6, two rings 1.3s apart",
+        "purpose": "The application's pulse on the map."
+      },
+      {
+        "name": "press",
+        "value": "scale 0.93 over 0.14s power2.in, back to 1 over 0.5s back.out(3)",
+        "purpose": "The system button being pressed."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Cameras jump, timelines land on their end state, pulse rings stop."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Narrative Card",
+      "kind": "card",
+      "refersTo": "card-narrative",
+      "description": "The step’s argument: heading, one or two sentences, an optional source note, on blurred glass at the left gutter.",
+      "html": "<div class=\"ds-card-stage\"><article class=\"ds-card\"><h1 class=\"ds-card-title\">Let’s follow one application</h1><p class=\"ds-card-body\">A school building is planned in the Fergana Valley. Its application enters the system as No. 371668581.</p><p class=\"ds-card-note\">Sample application and site coordinates from the ECO SERVICE process deck.</p></article></div>",
+      "css": ".ds-card-stage { padding: 2rem; background: var(--ground, #05080c); } .ds-card { width: 34rem; max-width: 100%; padding: 2.1rem 2.3rem 2.2rem; background: var(--panel, rgba(8, 13, 19, 0.86)); border: 1px solid var(--hair, rgba(138, 190, 210, 0.16)); border-radius: 16px; box-shadow: 0 2.4rem 5rem -2.6rem rgba(0, 0, 0, 0.9), 0 0.8rem 1.6rem -1rem rgba(0, 0, 0, 0.6); backdrop-filter: blur(14px) saturate(1.15); -webkit-backdrop-filter: blur(14px) saturate(1.15); color: var(--ink, #e9eff2); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-card-title { margin: 0; font-size: 2.45rem; line-height: 1.07; font-weight: 620; letter-spacing: -0.028em; text-wrap: balance; } .ds-card-body { margin: 1rem 0 0; font-size: 1.12rem; line-height: 1.52; color: var(--ink-2, #b0bfc8); text-wrap: pretty; } .ds-card-note { margin: 1.5rem 0 0; font-size: 0.74rem; line-height: 1.45; color: var(--ink-3, #7f919c); }"
+    },
+    {
+      "name": "Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Neutral outlined chip, then the three status fills: Lit Cyan for system events, leaf for done, amber for waiting.",
+      "html": "<div class=\"ds-chips-stage\"><span class=\"ds-chip\">Category III</span><span class=\"ds-chip ds-chip-cyan\">Routed simultaneously</span><span class=\"ds-chip ds-chip-leaf\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Paid</span><span class=\"ds-chip ds-chip-amber\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/></svg>Awaiting payment</span></div>",
+      "css": ".ds-chips-stage { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1.4rem; background: var(--sheet, #0b1219); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); } .ds-chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.72rem; border-radius: 999px; border: 1px solid var(--hair-2, rgba(138, 190, 210, 0.3)); font-size: 0.76rem; font-weight: 520; color: var(--ink-2, #b0bfc8); white-space: nowrap; } .ds-chip svg { width: 0.95rem; height: 0.95rem; flex: none; } .ds-chip-cyan { color: #032a31; background: var(--cyan-hi, #62d7ea); border-color: transparent; } .ds-chip-leaf { color: #0e1a05; background: var(--leaf, #96c962); border-color: transparent; } .ds-chip-amber { color: #2a1a02; background: var(--amber, #e8b04c); border-color: transparent; }"
+    },
+    {
+      "name": "System Button",
+      "kind": "button",
+      "refersTo": "button-system",
+      "description": "A control on a system screen: tinted cyan glass at rest, solid Lit Cyan once the step presses it.",
+      "html": "<div class=\"ds-btn-stage\"><span class=\"ds-btn\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 11 2 2 4-4\"/><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/></svg>Assign</span><span class=\"ds-btn ds-btn-pressed\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 11 2 2 4-4\"/><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/></svg>Assign</span></div>",
+      "css": ".ds-btn-stage { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1.4rem; background: var(--sheet, #0b1219); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); } .ds-btn { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.7rem 1.2rem; border-radius: 10px; background: rgba(98, 215, 234, 0.12); border: 1px solid rgba(98, 215, 234, 0.5); font-size: 0.95rem; font-weight: 620; color: var(--cyan-hi, #62d7ea); transition: transform 0.14s, background 0.3s, color 0.3s; } .ds-btn svg { width: 1.1rem; height: 1.1rem; flex: none; } .ds-btn:active { transform: scale(0.93); } .ds-btn-pressed { background: var(--cyan-hi, #62d7ea); color: #032a31; }"
+    },
+    {
+      "name": "Decision Options",
+      "kind": "button",
+      "refersTo": "option",
+      "description": "An outlined set of outcomes; the chosen one fills Shield Leaf and glows.",
+      "html": "<div class=\"ds-opt-stage\"><span class=\"ds-opt ds-opt-sel\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Approve</span><span class=\"ds-opt\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/></svg>Return for revision</span><span class=\"ds-opt\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/></svg>Reject</span></div>",
+      "css": ".ds-opt-stage { display: flex; flex-wrap: wrap; gap: 0.7rem; padding: 1.4rem; background: var(--sheet, #0b1219); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); } .ds-opt { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: 10px; border: 1px solid var(--hair-2, rgba(138, 190, 210, 0.3)); font-size: 0.9rem; color: var(--ink-2, #b0bfc8); } .ds-opt svg { width: 1.05rem; height: 1.05rem; flex: none; } .ds-opt-sel { background: var(--leaf, #96c962); color: #0e1a05; border-color: transparent; font-weight: 620; box-shadow: 0 0.6rem 1.8rem -0.6rem rgba(150, 201, 98, 0.65); }"
+    },
+    {
+      "name": "Application Ticket",
+      "kind": "card",
+      "refersTo": "ticket",
+      "description": "The evidence block that names the application; it turns leaf once the signed conclusion is issued.",
+      "html": "<div class=\"ds-ticket-stage\"><div class=\"ds-ticket\"><span class=\"ds-ticket-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"/><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg></span><span class=\"ds-ticket-main\"><span class=\"ds-ticket-id\">Application No. <span class=\"ds-ticket-num\">371668581</span></span><span class=\"ds-ticket-obj\">School building construction</span></span><span class=\"ds-ticket-chip\">Category III</span></div><div class=\"ds-ticket ds-ticket-issued\"><span class=\"ds-ticket-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13\"/><path d=\"M20 15.5a2.5 2.5 0 0 0-2.5-2.5h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1z\"/><path d=\"M5 22h14\"/></svg></span><span class=\"ds-ticket-main\"><span class=\"ds-ticket-id\">Conclusion · Application No. <span class=\"ds-ticket-num\">371668581</span></span><span class=\"ds-ticket-obj\">School building construction</span></span><span class=\"ds-ticket-chip ds-ticket-chip-leaf\">Signed, issued</span></div></div>",
+      "css": ".ds-ticket-stage { display: grid; gap: 1rem; width: 30rem; max-width: 100%; padding: 1.6rem; background: var(--panel, rgba(8, 13, 19, 0.86)); color: var(--ink, #e9eff2); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-ticket { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1rem; border-radius: 12px; background: rgba(98, 215, 234, 0.07); border: 1px solid rgba(98, 215, 234, 0.32); } .ds-ticket-ic { width: 2.4rem; height: 2.4rem; flex: none; display: grid; place-items: center; border-radius: 10px; background: rgba(98, 215, 234, 0.14); color: var(--cyan-hi, #62d7ea); } .ds-ticket-ic svg { width: 1.25rem; height: 1.25rem; } .ds-ticket-main { display: grid; gap: 0.15rem; } .ds-ticket-id { font-size: 0.8rem; color: var(--cyan-hi, #62d7ea); } .ds-ticket-num { font-family: var(--mono, 'Martian Mono Variable', 'Cascadia Mono', ui-monospace, monospace); font-weight: 420; letter-spacing: -0.01em; } .ds-ticket-obj { font-size: 0.92rem; } .ds-ticket-chip { margin-left: auto; display: inline-flex; align-items: center; padding: 0.3rem 0.72rem; border-radius: 999px; border: 1px solid var(--hair-2, rgba(138, 190, 210, 0.3)); font-size: 0.76rem; font-weight: 520; color: var(--ink-2, #b0bfc8); white-space: nowrap; } .ds-ticket-chip-leaf { color: #0e1a05; background: var(--leaf, #96c962); border-color: transparent; } .ds-ticket-issued { background: rgba(150, 201, 98, 0.07); border-color: rgba(150, 201, 98, 0.38); } .ds-ticket-issued .ds-ticket-ic { background: rgba(150, 201, 98, 0.15); color: var(--leaf, #96c962); } .ds-ticket-issued .ds-ticket-id { color: var(--leaf, #96c962); }"
+    },
+    {
+      "name": "System Sheet",
+      "kind": "card",
+      "refersTo": "sheet-system",
+      "description": "A screen of ECO SERVICE: dark sheet, washed header with the ID pushed right, checked rows, the rating scale (crest omitted in this snippet).",
+      "html": "<div class=\"ds-sheet-stage\"><div class=\"ds-sheet\"><header class=\"ds-sheet-hd\"><div class=\"ds-sheet-t\"><b>Application review</b><span>Application Intake Department</span></div><span class=\"ds-sheet-id\">No. <span class=\"ds-sheet-num\">371668581</span></span></header><ul class=\"ds-sheet-rows\"><li><span class=\"ds-sheet-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"/><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg></span><span class=\"ds-sheet-rt\"><b>Application form</b><span>Completeness and accuracy of the data</span></span><svg class=\"ds-sheet-tick\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10.5\"/><path d=\"M7.2 12.4l3.2 3.2 6.4-6.6\"/></svg></li><li><span class=\"ds-sheet-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 01-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0112 0\"/><path d=\"M4.474 15h-.197a1 1 0 00-.969.753l-1.097 4.35a1.5 1.5 0 001.444 1.898L20.344 22a1.5 1.5 0 001.446-1.897l-1.098-4.35a1 1 0 00-.969-.753h-.197\"/><circle cx=\"12\" cy=\"8\" r=\"2\"/></svg></span><span class=\"ds-sheet-rt\"><b>Inspector’s site schematic</b><span>Status of the district inspector’s findings</span></span><span class=\"ds-sheet-chip\">Accepted</span></li><li><span class=\"ds-sheet-ic\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m12 14 4-4\"/><path d=\"M3.34 19a10 10 0 1 1 17.32 0\"/></svg></span><span class=\"ds-sheet-rt\"><b>Designer rating</b><span>The project developer is rated on a scale of 1 to 100</span></span><span class=\"ds-sheet-score\">85</span></li></ul><div class=\"ds-sheet-scale\"><span class=\"ds-sheet-end\">1</span><span class=\"ds-sheet-bar\"><span class=\"ds-sheet-fill\"></span><span class=\"ds-sheet-knob\"></span></span><span class=\"ds-sheet-end\">100</span><span class=\"ds-sheet-val\">85</span></div></div></div>",
+      "css": ".ds-sheet-stage { padding: 2rem; background: var(--ground, #05080c); color: var(--ink, #e9eff2); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-sheet { width: 40rem; max-width: 100%; background: linear-gradient(180deg, rgba(14, 22, 30, 0.97), rgba(9, 15, 21, 0.97)); border: 1px solid var(--hair, rgba(138, 190, 210, 0.16)); border-radius: 14px; overflow: hidden; box-shadow: 0 2.6rem 5rem -2.6rem rgba(0, 0, 0, 0.95), 0 1rem 2.2rem -1.4rem rgba(0, 0, 0, 0.7); } .ds-sheet-hd { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--hair, rgba(138, 190, 210, 0.16)); background: rgba(34, 184, 208, 0.05); } .ds-sheet-t { display: grid; gap: 0.15rem; } .ds-sheet-t b { font-size: 1.05rem; font-weight: 620; } .ds-sheet-t span { font-size: 0.78rem; color: var(--ink-3, #7f919c); } .ds-sheet-id { margin-left: auto; font-size: 0.8rem; color: var(--cyan-hi, #62d7ea); } .ds-sheet-num, .ds-sheet-score, .ds-sheet-end, .ds-sheet-val { font-family: var(--mono, 'Martian Mono Variable', 'Cascadia Mono', ui-monospace, monospace); font-weight: 420; letter-spacing: -0.01em; } .ds-sheet-rows { list-style: none; margin: 0; padding: 0.3rem 0; } .ds-sheet-rows li { display: grid; grid-template-columns: 2.6rem 1fr auto; gap: 1rem; align-items: center; padding: 0.8rem 1.4rem; border-bottom: 1px solid rgba(138, 190, 210, 0.08); } .ds-sheet-ic { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 10px; background: rgba(138, 190, 210, 0.08); color: var(--ink-2, #b0bfc8); } .ds-sheet-ic svg { width: 1.25rem; height: 1.25rem; } .ds-sheet-rt { display: grid; gap: 0.15rem; } .ds-sheet-rt b { font-size: 0.98rem; font-weight: 560; } .ds-sheet-rt span { font-size: 0.78rem; color: var(--ink-3, #7f919c); } .ds-sheet-tick { width: 1.7rem; height: 1.7rem; } .ds-sheet-tick circle { fill: rgba(150, 201, 98, 0.16); stroke: var(--leaf, #96c962); stroke-width: 1.6; } .ds-sheet-tick path { fill: none; stroke: var(--leaf, #96c962); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; } .ds-sheet-chip { display: inline-flex; padding: 0.3rem 0.72rem; border-radius: 999px; font-size: 0.76rem; font-weight: 520; color: #0e1a05; background: var(--leaf, #96c962); white-space: nowrap; } .ds-sheet-score { font-size: 1.05rem; color: var(--cyan-hi, #62d7ea); } .ds-sheet-scale { display: grid; grid-template-columns: auto 1fr auto auto; gap: 0.9rem; align-items: center; padding: 1rem 1.4rem 1.4rem; } .ds-sheet-bar { position: relative; height: 6px; border-radius: 6px; background: rgba(138, 190, 210, 0.18); } .ds-sheet-fill { position: absolute; inset: 0 auto 0 0; width: 85%; border-radius: 6px; background: var(--cyan-hi, #62d7ea); } .ds-sheet-knob { position: absolute; top: 50%; left: 85%; width: 1.1rem; height: 1.1rem; margin: -0.55rem 0 0 -0.55rem; border-radius: 50%; background: #fff; box-shadow: 0 0 0 5px rgba(98, 215, 234, 0.25); } .ds-sheet-end { font-size: 0.72rem; color: var(--ink-3, #7f919c); } .ds-sheet-val { min-width: 2.6ch; text-align: right; font-size: 1.6rem; }"
+    },
+    {
+      "name": "Paper Document",
+      "kind": "card",
+      "refersTo": "paper-document",
+      "description": "An official document as flat pale paper: capitalized title, ID, numbered hairline-ruled fields, hatched redaction, footer (crest omitted in this snippet).",
+      "html": "<div class=\"ds-paper-stage\"><article class=\"ds-paper\"><header class=\"ds-paper-hd\"><b class=\"ds-paper-title\">APPLICATION RECORD</b><span class=\"ds-paper-id\">Application No. <span class=\"ds-paper-num\">371668581</span></span></header><ol class=\"ds-paper-fields\"><li><span class=\"ds-paper-n\">1</span><div><span class=\"ds-paper-l\">Application number and date</span><span class=\"ds-paper-v\"><span class=\"ds-paper-num\">371668581</span><i class=\"ds-paper-redact ds-paper-w4\"></i></span></div></li><li><span class=\"ds-paper-n\">2</span><div><span class=\"ds-paper-l\">Applicant: full name or company name</span><span class=\"ds-paper-v\"><i class=\"ds-paper-redact ds-paper-w9\"></i></span></div></li><li><span class=\"ds-paper-n\">3</span><div><span class=\"ds-paper-l\">Object of expertise</span><span class=\"ds-paper-v\">School building construction</span></div></li><li><span class=\"ds-paper-n\">4</span><div><span class=\"ds-paper-l\">Environmental impact category</span><span class=\"ds-paper-v\">Category III</span></div></li></ol><footer class=\"ds-paper-foot\">Received through my.gov.uz</footer></article></div>",
+      "css": ".ds-paper-stage { display: grid; place-items: center; padding: 2rem; background: var(--ground, #05080c); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-paper { position: relative; width: 22rem; max-width: 100%; aspect-ratio: 1 / 1.414; display: flex; flex-direction: column; padding: 2rem 1.9rem 1.5rem; background: #e3e9ec; color: #05080c; border-radius: 3px; box-shadow: 0 2.2rem 4.4rem -1.8rem rgba(0, 0, 0, 0.9), 0 0.4rem 1rem -0.4rem rgba(0, 0, 0, 0.6); } .ds-paper-hd { display: grid; justify-items: center; gap: 0.3rem; padding-bottom: 0.9rem; border-bottom: 1px solid rgba(5, 8, 12, 0.24); text-align: center; } .ds-paper-title { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em; } .ds-paper-id { font-size: 0.74rem; color: #3d4c54; } .ds-paper-num { font-family: var(--mono, 'Martian Mono Variable', 'Cascadia Mono', ui-monospace, monospace); font-weight: 420; letter-spacing: -0.01em; color: #05080c; } .ds-paper-id .ds-paper-num { font-size: 0.72rem; } .ds-paper-fields { list-style: none; margin: 0; padding: 0.3rem 0 0; display: grid; } .ds-paper-fields li { display: grid; grid-template-columns: 1.5rem 1fr; padding: 0.58rem 0; border-bottom: 1px solid rgba(5, 8, 12, 0.14); } .ds-paper-n { padding-top: 0.12rem; font-family: var(--mono, 'Martian Mono Variable', 'Cascadia Mono', ui-monospace, monospace); font-weight: 420; font-size: 0.68rem; color: #46565e; } .ds-paper-l { display: block; font-size: 0.68rem; color: #46565e; } .ds-paper-v { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.22rem; min-height: 1.1rem; font-size: 0.86rem; font-weight: 540; } .ds-paper-redact { display: inline-block; height: 0.78em; border-radius: 3px; background: repeating-linear-gradient(135deg, rgba(5, 8, 12, 0.5) 0 5px, rgba(5, 8, 12, 0.28) 5px 10px); } .ds-paper-w4 { width: 4.2em; } .ds-paper-w9 { width: 9em; } .ds-paper-foot { margin-top: auto; padding-top: 0.7rem; border-top: 1px solid rgba(5, 8, 12, 0.24); font-size: 0.68rem; color: #46565e; text-align: center; }"
+    },
+    {
+      "name": "Route Rail",
+      "kind": "nav",
+      "refersTo": "rail-station",
+      "description": "The docked eight-station rail: done stations solid leaf, the current one a lit cyan ring with its halo, the fill glowing up to it.",
+      "html": "<div class=\"ds-rail-stage\"><nav class=\"ds-rail\" aria-label=\"Stages of state ecological expertise\"><div class=\"ds-rail-track\"><div class=\"ds-rail-fill\"></div></div><div class=\"ds-rail-st ds-rail-done\" style=\"left:3%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">1</span>Intake</span></div><div class=\"ds-rail-st ds-rail-done\" style=\"left:16.429%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">2</span>Payment</span></div><div class=\"ds-rail-st ds-rail-done\" style=\"left:29.857%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">3</span>Assignment</span></div><div class=\"ds-rail-st ds-rail-now\" style=\"left:43.286%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">4</span>Conclusion</span></div><div class=\"ds-rail-st\" style=\"left:56.714%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">5</span>Review</span></div><div class=\"ds-rail-st\" style=\"left:70.143%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">6</span>Coordination</span></div><div class=\"ds-rail-st\" style=\"left:83.571%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">7</span>Approval</span></div><div class=\"ds-rail-st\" style=\"left:97%\"><span class=\"ds-rail-dot\"><svg class=\"ds-rail-ck\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-rail-lb\"><span class=\"ds-rail-n\">8</span>Signing</span></div></nav></div>",
+      "css": ".ds-rail-stage { padding: 1.6rem 2.4rem 1.2rem; overflow-x: auto; background: var(--ground, #05080c); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-rail { position: relative; width: 60rem; height: 3.8rem; } .ds-rail-track { position: absolute; left: 3%; right: 3%; top: 0.6rem; height: 3px; margin-top: -1.5px; border-radius: 3px; background: rgba(138, 190, 210, 0.22); } .ds-rail-fill { position: absolute; inset: 0 auto 0 0; width: 42.857%; border-radius: 3px; background: var(--cyan-hi, #62d7ea); box-shadow: 0 0 12px rgba(98, 215, 234, 0.55); transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-rail-st { position: absolute; top: 0; translate: -50% 0; display: grid; justify-items: center; gap: 0.5rem; } .ds-rail-dot { width: 1.2rem; height: 1.2rem; display: grid; place-items: center; border-radius: 50%; background: var(--ground, #05080c); border: 2px solid rgba(138, 190, 210, 0.42); transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1); } .ds-rail-ck { width: 0.78rem; height: 0.78rem; color: #0e1a05; stroke-width: 3; opacity: 0; } .ds-rail-lb { display: flex; align-items: baseline; gap: 0.45rem; font-size: 0.8rem; color: var(--ink-3, #7f919c); white-space: nowrap; } .ds-rail-n { font-family: var(--mono, 'Martian Mono Variable', 'Cascadia Mono', ui-monospace, monospace); font-weight: 420; font-size: 0.64rem; } .ds-rail-done .ds-rail-dot { background: var(--leaf, #96c962); border-color: var(--leaf, #96c962); } .ds-rail-done .ds-rail-ck { opacity: 1; } .ds-rail-done .ds-rail-lb { color: var(--ink-2, #b0bfc8); } .ds-rail-now .ds-rail-dot { background: #062a31; border-color: var(--cyan-hi, #62d7ea); box-shadow: 0 0 0 0.4rem rgba(98, 215, 234, 0.14), 0 0 1.4rem rgba(98, 215, 234, 0.6); } .ds-rail-now .ds-rail-lb { color: var(--ink, #e9eff2); font-weight: 620; }"
+    },
+    {
+      "name": "Transit Diagram",
+      "kind": "custom",
+      "refersTo": "station-node",
+      "description": "Process as a transit line: tracks, a lit 4px route, ring stations in their states, a coral loop for revision, a riding token.",
+      "html": "<div class=\"ds-geo-stage\"><div class=\"ds-geo\"><svg class=\"ds-geo-svg\" viewBox=\"0 0 1000 560\" aria-hidden=\"true\"><path class=\"ds-geo-track\" d=\"M238 230 H642\"/><path class=\"ds-geo-track\" d=\"M680 268 C680 448 200 448 200 268\"/><path class=\"ds-geo-track\" d=\"M718 230 H975\"/><path class=\"ds-geo-route\" d=\"M238 230 H642\"/><path class=\"ds-geo-route ds-geo-back\" d=\"M680 268 C680 448 200 448 200 268\"/><g class=\"ds-geo-node ds-geo-done\"><circle class=\"ds-geo-disc\" cx=\"200\" cy=\"230\" r=\"38\"/><svg x=\"185\" y=\"215\" width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg></g><g class=\"ds-geo-node ds-geo-now\"><circle class=\"ds-geo-disc\" cx=\"680\" cy=\"230\" r=\"38\"/><svg x=\"665\" y=\"215\" width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><path d=\"M16 3.128a4 4 0 0 1 0 7.744\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/></svg></g><g class=\"ds-geo-tok\" transform=\"translate(440 230)\"><rect x=\"-88\" y=\"-17\" width=\"176\" height=\"34\" rx=\"9\"/><text x=\"0\" y=\"5.5\" text-anchor=\"middle\">Draft conclusion</text></g></svg><div class=\"ds-geo-lbl ds-geo-up\" style=\"left:20%;top:33%\"><b>Expert</b><span>Writes the conclusion</span></div><div class=\"ds-geo-lbl ds-geo-up\" style=\"left:68%;top:33%\"><b>Expert supervisors</b><span>Review and approve</span></div><div class=\"ds-geo-lbl ds-geo-wide\" style=\"left:44%;top:83%\"><b class=\"ds-geo-coral\">If issues are found, it is returned for revision</b><span>The expert resolves them and resubmits</span></div></div></div>",
+      "css": ".ds-geo-stage { padding: 1.6rem; background: var(--ground, #05080c); color: var(--ink, #e9eff2); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-geo { position: relative; width: 48rem; max-width: 100%; aspect-ratio: 1000 / 560; } .ds-geo-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; } .ds-geo-track { fill: none; stroke: rgba(138, 190, 210, 0.2); stroke-width: 3; stroke-linecap: round; } .ds-geo-route { fill: none; stroke: var(--cyan-hi, #62d7ea); stroke-width: 4; stroke-linecap: round; filter: drop-shadow(0 0 6px rgba(98, 215, 234, 0.55)); } .ds-geo-back { stroke: var(--coral, #ef7c64); filter: drop-shadow(0 0 6px rgba(239, 124, 100, 0.5)); } .ds-geo-disc { fill: var(--sheet, #0b1219); stroke: rgba(138, 190, 210, 0.42); stroke-width: 2; transition: fill 0.5s, stroke 0.5s; } .ds-geo-node svg { color: var(--ink-3, #7f919c); transition: color 0.5s; } .ds-geo-now .ds-geo-disc { fill: #062a31; stroke: var(--cyan-hi, #62d7ea); stroke-width: 3; } .ds-geo-now svg { color: var(--cyan-hi, #62d7ea); } .ds-geo-done .ds-geo-disc { fill: #17260d; stroke: var(--leaf, #96c962); stroke-width: 3; } .ds-geo-done svg { color: var(--leaf, #96c962); } .ds-geo-tok rect { fill: var(--cyan-hi, #62d7ea); filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(98, 215, 234, 0.6)); } .ds-geo-tok text { font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-size: 15px; font-weight: 660; fill: #032a31; } .ds-geo-lbl { position: absolute; translate: -50% 0; display: grid; justify-items: center; gap: 0.2rem; width: max-content; max-width: 14rem; text-align: center; } .ds-geo-up { translate: -50% -100%; } .ds-geo-wide { max-width: 24rem; } .ds-geo-lbl b { font-size: 1rem; font-weight: 600; color: var(--ink, #e9eff2); } .ds-geo-lbl span { font-size: 0.78rem; line-height: 1.35; color: var(--ink-2, #b0bfc8); } .ds-geo-lbl b, .ds-geo-lbl span { text-shadow: 0 0 0.5rem #05080c, 0 0 1.2rem #05080c; } .ds-geo-lbl b.ds-geo-coral { color: var(--coral, #ef7c64); }"
+    },
+    {
+      "name": "Map Pulse and Tag",
+      "kind": "custom",
+      "refersTo": "map-tag",
+      "description": "The application on the map: a pinging Lit Cyan pulse and its number tag, words in Geologica, the number in Mono.",
+      "html": "<div class=\"ds-mk-stage\"><div class=\"ds-mk\"><span class=\"ds-pulse-ring\"></span><span class=\"ds-pulse-ring ds-pulse-r2\"></span><span class=\"ds-pulse-core\"></span><span class=\"ds-tag\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"/><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"/><path d=\"M10 9H8\"/><path d=\"M16 13H8\"/><path d=\"M16 17H8\"/></svg><span>No. <span class=\"ds-tag-num\">371668581</span></span></span></div></div>",
+      "css": ".ds-mk-stage { position: relative; height: 9rem; overflow: hidden; background: var(--ground, #05080c); color: var(--ink, #e9eff2); font-family: var(--font, 'Geologica Variable', 'Segoe UI', system-ui, sans-serif); font-weight: 380; } .ds-mk { position: absolute; left: 30%; top: 50%; width: 0; height: 0; } .ds-pulse-core, .ds-pulse-ring { position: absolute; left: -0.42rem; top: -0.42rem; width: 0.84rem; height: 0.84rem; border-radius: 50%; } .ds-pulse-core { background: var(--cyan-hi, #62d7ea); border: 2px solid #e9fbff; box-shadow: 0 0 0.8rem 0.2rem rgba(98, 215, 234, 0.75); } .ds-pulse-ring { border: 1.5px solid var(--cyan-hi, #62d7ea); animation: ds-ping 2.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite; } .ds-pulse-r2 { animation-delay: 1.3s; } @keyframes ds-ping { from { transform: scale(1); opacity: 0.9; } to { transform: scale(6); opacity: 0; } } .ds-tag { position: absolute; left: 1.3rem; top: 0; transform: translateY(-50%); display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.75rem; white-space: nowrap; border-radius: 9px; background: rgba(5, 8, 12, 0.86); border: 1px solid rgba(98, 215, 234, 0.45); font-size: 0.78rem; box-shadow: 0 0.6rem 1.8rem -0.6rem rgba(0, 0, 0, 0.8); } .ds-tag svg { width: 1rem; height: 1rem; color: var(--cyan-hi, #62d7ea); } .ds-tag-num { font-family: var(--mono, 'Martian Mono Variable', 'Cascadia Mono', ui-monospace, monospace); font-weight: 420; letter-spacing: -0.01em; } @media (prefers-reduced-motion: reduce) { .ds-pulse-ring { animation: none; opacity: 0; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Line the Application Rides",
+    "overview": "The system is a night earth and one lit line. A single application travels over the real satellite map of Uzbekistan, from a 10 m plot in the Fergana Valley to Tashkent and back, and every screen is a station on that line. The ground is a slate-black night with the country's border lit in the shield's cyan and the rest of the world masked; the process is drawn in transit-map grammar (tracks, lit routes, ring stations, a fork, a loop, a transfer); system screens arrive as dark sheets and official documents as pale paper.\n\nDensity is low and cinematic: one heading, one or two sentences, at most one evidence block per step, at sizes that read across a hall. Color is a status code, not decoration: Lit Cyan is the system and where the application is now, leaf is done, amber is waiting, coral is returned. Motion is camera flight and line drawing; between steps the earth sways a few degrees so a held step never looks frozen.\n\nThe direction refuses the category default, process boxes and arrows on a white slide. Where the build departs from the direction contract, the build is recorded here: the opening crest is 6.4rem (the contract asked for about 7rem) and the wordmark 5.6rem (about 5.4rem). The contract's \"official sheets\" became two materials in the build: pale paper for documents, dark sheets for system screens.",
+    "keyCharacteristics": [
+      "Night satellite earth as the only ground: imagery desaturated and capped, Uzbekistan's border lit, everything outside it masked.",
+      "Transit-diagram grammar for every process: 3px tracks, 4px lit routes, ring stations, a fork, a loop, a transfer.",
+      "A four-state color code from the shield: cyan current, leaf done, amber waiting, coral returned.",
+      "Two materials for evidence: dark translucent system sheets and flat pale paper for official documents.",
+      "Geologica for every word; Martian Mono only for values the system holds.",
+      "Type and spacing locked to screen height (1rem = min(1.9vh, 1.07vw)), composed at 1920×1080.",
+      "Camera flights and drawn lines carry the motion; a slow, bounded sway keeps the earth alive between steps."
+    ],
+    "rules": [
+      {
+        "name": "The Status-Only Hue Rule",
+        "body": "Leaf, amber and coral are states, never accents: leaf is done or approved, amber is waiting, coral is returned. If nothing has happened to it, it does not wear them.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Cyans Rule",
+        "body": "Lit Cyan draws whatever must be read or followed on the night ground: lines, rings, icons, IDs and their glows. Shield Cyan is the brand's own cyan, used broad and soft: blooms, area fills, washes, halos. Shield Cyan never sets a word.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper-Is-Official Rule",
+        "body": "Official Paper is reserved for documents the state records or issues: the application record, the expertise conclusion, the signed conclusion. System screens are always dark sheets.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono-Is-Data Rule",
+        "body": "Martian Mono sets only values the system holds: the application number, coordinates, step and station numerals, field numbers, the score and its scale, the 15–25 span on the finale rail. The words around a value stay Geologica, even inside one line (\"Application No.\" in Geologica, the number in Mono). Numbers inside headlines and sentences stay Geologica.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tighten-As-It-Grows Rule",
+        "body": "Headings tighten and thicken as they grow: -0.028em at 2.45rem, -0.035em at 3.4rem, -0.038em at 4.4rem, -0.04em at 5.6rem, weight rising from 620 to 720. Body text is never tracked.",
+        "section": "typography"
+      },
+      {
+        "name": "The Form-Title Rule",
+        "body": "Spaced capitals (0.08em, 700) belong to official paper titles alone. Nothing on a dark surface is set in spaced capitals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Height-Locked Rem Rule",
+        "body": "Size everything that composes the frame in rem (1rem = min(1.9vh, 1.07vw)) and compose at 1920×1080; HTML type is never sized in px.",
+        "section": "layout"
+      },
+      {
+        "name": "The Subject-In-The-Clear Rule",
+        "body": "The camera frames its subject in the ground the card leaves free, never behind the card; while the application rides, it holds the band under the top bar.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hanging Shadow Rule",
+        "body": "A surface that floats over the map hangs: a large downward offset, a large blur and a negative spread at 0.8–0.95 black, so it darkens the ground beneath it without a visible halo edge.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Light-Is-State Rule",
+        "body": "Among routes, stations and choices, glow marks the live thing: the route, the current station, the application's pulse, the chosen answer. Finished stations go flat in leaf; on the docked rail and in diagrams, stations not yet reached are idle hairline rings.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Veil-Under-The-Light Rule",
+        "body": "Dim the ground only through the in-map veil, beneath the border, route and markers. The shade scrim above the map only grades the frame's edges for the card, rail and chrome; nothing flat is laid over the whole map to darken it.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Solid Route Rule",
+        "body": "The application's route is a solid, round-capped 4px line, and its lit head (pulse and number tag) rides the tip until the application arrives, when the destination's pulse takes over. Dashes belong to the inspection ring alone, which marks an area, not a path.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do draw every process as a transit line: a 3px Track, a 4px Lit Cyan route, ring stations in their state colors, a fork for simultaneous routing, a coral loop for revision, a framed transfer for coordination.",
+      "Do keep the one application in view: its pulse and number tag mark where it is (the site, then the route's tip), held in the band under the top bar while a visual is up.",
+      "Do draw official documents as flat Official Paper (3px corners, crest, numbered hairline-ruled fields or sections, signature lines on what gets signed) and every system screen as a dark sheet.",
+      "Do set every value the system holds in Martian Mono and every word in Geologica, splitting within a line where they meet.",
+      "Do dim through the in-map veil (0.45–0.75, saturation down to -0.6) so the border, route and markers stay lit above it.",
+      "Do halo any text that sits straight on the map with Night Ground (0 0 0.5rem and 0 0 1.2rem).",
+      "Do label illustrative screens and sample data with a source note at the card's foot (0.74rem, Haze Ink).",
+      "Do step back what is no longer the point by fading it to 0.28–0.38 opacity rather than removing it.",
+      "Do keep every word as live text so the deck can be translated; no text is baked into images."
+    ],
+    "donts": [
+      "Don't draw the process as boxes and arrows on a white slide.",
+      "Don't put leaf, amber or coral on anything that is not a state.",
+      "Don't set words in Martian Mono, or the numbers inside headlines and sentences.",
+      "Don't draw the application's route dashed or thinner than 4px; dashes belong to the inspection ring alone.",
+      "Don't darken the whole map with a flat layer above it; it would bury the lit route and markers. Above the map, only the shade scrim grades the frame's edges.",
+      "Don't make a system screen light or an official document dark.",
+      "Don't set spaced capitals anywhere but an official paper's title, or put a label above a card's heading.",
+      "Don't give elements hover states; state comes from the step, and the pointer hides.",
+      "Don't size HTML type in px; the height-locked rem keeps the composition identical on every screen."
+    ]
+  }
+}

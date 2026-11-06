@@ -1,0 +1,22 @@
+{
+  "name": "eco-service-presentation",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "ECO SERVICE: the journey of one application. Full-screen web presentation.",
+  "scripts": {
+    "dev": "vite --port 5174 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 4174 --strictPort"
+  },
+  "dependencies": {
+    "@fontsource-variable/geologica": "^5.3.0",
+    "@fontsource-variable/martian-mono": "^5.3.0",
+    "gsap": "^3.15.1",
+    "lucide": "^1.70.0",
+    "maplibre-gl": "^6.16.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.6"
+  }
+}

@@ -1,0 +1,9 @@
+# dependencies and build output (present.bat installs and builds them)
+node_modules/
+dist/
+
+# local tooling
+__pycache__/
+*.log
+.DS_Store
+Thumbs.db
