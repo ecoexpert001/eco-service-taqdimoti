@@ -1,5 +1,5 @@
 // The narrative panel: one heading, one or two sentences, optional evidence block, optional source note.
-import { APP_NO, CRITERIA, SITE_COORDS } from './data.js';
+import { APP_NO, CRITERIA, GPS_DEV, SITE_AREA, SITE_COORDS, SITE_GPS, num } from './data.js';
 import { icon } from './icons.js';
 import { t } from './i18n.js';
 import { ZONES, ZONE_LAYERS, fmtDistance, zoneName } from './zones.js';
@@ -29,11 +29,15 @@ const BLOCKS = {
       </dl>
     </div>`,
 
+  // The corners in the application against the corners measured on site: they must match.
   coords: () => `
-    <ol class="coords">
-      ${SITE_COORDS.map(([la, lo], i) => `<li><span class="n mono">${i + 1}</span><span class="mono">${la.toFixed(5)}</span><span class="mono">${lo.toFixed(5)}</span></li>`).join('')}
-    </ol>
-    <p class="aside">${icon('scan')}${t('A plot of about 10 × 10 m')}</p>`,
+    <table class="cmp">
+      <thead><tr><th>№</th><th>${t('In the application')}</th><th>${t('Measured on site (GPS)')}</th><th></th></tr></thead>
+      <tbody>
+        ${SITE_COORDS.map(([la, lo], i) => `<tr><td><span class="n mono">${i + 1}</span></td><td class="mono">${la.toFixed(6)}<br>${lo.toFixed(6)}</td><td class="mono">${SITE_GPS[i][0].toFixed(6)}<br>${SITE_GPS[i][1].toFixed(6)}</td><td><span class="ok">${icon('check')}</span></td></tr>`).join('')}
+      </tbody>
+    </table>
+    <p class="aside">${icon('locateFixed')}${t('Coordinates match: deviation under')} ${num(Math.ceil(GPS_DEV * 10) / 10, 1)} ${t('m')} · ${t('plot')} ≈ ${num(SITE_AREA)} m²</p>`,
 
   criteria: () => `
     <ul class="crit-list">

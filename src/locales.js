@@ -29,10 +29,8 @@ export const LOCALES = {
   'Coordination': ['Kelishuv', 'Согласование'],
   'Approval': ['Tasdiqlash', 'Утверждение'],
   'Signing': ['Imzolash', 'Подписание'],
-  'Application, site inspection, intake review': ['Ariza, joyida oʻrganish, qabul tekshiruvi', 'Заявка, осмотр на месте, проверка приёма'],
   'Online invoice, automatic status': ['Onlayn invoys, avtomatik holat', 'Онлайн-счёт, автоматический статус'],
   'Responsible expert, automatic deadlines': ['Masʼul ekspert, avtomatik muddatlar', 'Ответственный эксперт, автоматические сроки'],
-  'Site visit, drafted in the system': ['Obyektga chiqish, tizimda tayyorlanadi', 'Выезд на объект, подготовка в системе'],
   'Checked by expert supervisors': ['Ekspert rahbarlari tekshiradi', 'Проверка руководителями экспертов'],
   'Two divisions of the National Committee': ['Milliy qoʻmitaning ikki tuzilmasi', 'Два подразделения Национального комитета'],
   'Final decision by the Center’s director': ['Markaz direktorining yakuniy qarori', 'Окончательное решение директора Центра'],
@@ -57,18 +55,6 @@ export const LOCALES = {
   'Applications start on my.gov.uz': ['Arizalar my.gov.uz da boshlanadi', 'Заявки подаются на my.gov.uz'],
 
   // ---------- steps: opening ----------
-  'One application. Eight stages. Every step on record.': ['Bitta ariza. Sakkiz bosqich. Har qadam qayd etiladi.', 'Одна заявка. Восемь этапов. Каждый шаг зафиксирован.'],
-  'ECO SERVICE carries an application for state ecological expertise from submission to a signed conclusion, entirely online.': [
-    'ECO SERVICE davlat ekologik ekspertizasi arizasini topshirilganidan imzolangan xulosagacha toʻliq onlayn olib boradi.',
-    'ECO SERVICE ведёт заявку на государственную экологическую экспертизу от подачи до подписанного заключения полностью онлайн.',
-  ],
-  'Eight stages, one system': ['Sakkiz bosqich, bitta tizim', 'Восемь этапов, одна система'],
-  'Every stage, from intake to signing, runs inside ECO SERVICE.': ['Qabuldan imzolashgacha har bir bosqich ECO SERVICE ichida bajariladi.', 'Каждый этап, от приёма до подписания, проходит внутри ECO SERVICE.'],
-  'Let’s follow one application': ['Bitta arizani kuzatib boramiz', 'Проследим одну заявку'],
-  'A school building is planned in the Fergana Valley. Its application enters the system as No. 371668581.': [
-    'Fargʻona vodiysida maktab binosi qurish rejalashtirilgan. Uning arizasi tizimga № 371668581 bilan kiradi.',
-    'В Ферганской долине планируется здание школы. Его заявка поступает в систему под № 371668581.',
-  ],
   'Sample application and site coordinates from the ECO SERVICE process deck.': [
     'Namunaviy ariza va obyekt koordinatalari ECO SERVICE jarayon taqdimotidan olingan.',
     'Образец заявки и координаты объекта из презентации процесса ECO SERVICE.',
@@ -76,16 +62,7 @@ export const LOCALES = {
 
   // ---------- Stage 1 ----------
   'It starts on my.gov.uz': ['Hammasi my.gov.uz dan boshlanadi', 'Всё начинается на my.gov.uz'],
-  'The applicant submits the application on the Single Portal of Interactive Public Services. From there it goes straight into ECO SERVICE.': [
-    'Buyurtmachi arizani Interaktiv davlat xizmatlari yagona portalida topshiradi. U yerdan ariza toʻgʻridan-toʻgʻri ECO SERVICE ga tushadi.',
-    'Заявитель подаёт заявку на Едином портале интерактивных государственных услуг. Оттуда она сразу поступает в ECO SERVICE.',
-  ],
   'Two units see it at the same moment': ['Ikki boʻlim uni bir vaqtda koʻradi', 'Два подразделения видят её одновременно'],
-  'ECO SERVICE routes the application simultaneously to the district ecological inspector and the Application Intake Department.': [
-    'ECO SERVICE arizani bir vaqtning oʻzida tuman ekologik inspektori va Arizalarni qabul qilish boʻlimiga yoʻnaltiradi.',
-    'ECO SERVICE одновременно направляет заявку районному экологическому инспектору и в Отдел приёма заявок.',
-  ],
-  'Every application carries the same key data': ['Har bir arizada bir xil asosiy maʼlumotlar bor', 'Каждая заявка содержит одни и те же ключевые данные'],
   'Number and date, applicant, TIN or PINFL, object of expertise, impact category and type of materials.': [
     'Raqam va sana, buyurtmachi, STIR yoki JSHSHIR, ekspertiza obyekti, taʼsir toifasi va materiallar turi.',
     'Номер и дата, заявитель, ИНН или ПИНФЛ, объект экспертизы, категория воздействия и вид материалов.',
@@ -95,53 +72,21 @@ export const LOCALES = {
     'Поля без образцов значений в презентации процесса показаны скрытыми.',
   ],
   'The inspector goes to the site': ['Inspektor obyektga chiqadi', 'Инспектор выезжает на объект'],
-  'The application appears in the inspector’s account with its number, applicant, object and deadline.': [
-    'Ariza inspektor kabinetida raqami, buyurtmachisi, obyekti va muddati bilan paydo boʻladi.',
-    'Заявка появляется в кабинете инспектора с номером, заявителем, объектом и сроком.',
-  ],
-  'The site is fixed by coordinates': ['Obyekt koordinatalar bilan belgilanadi', 'Объект фиксируется координатами'],
-  'The object’s location is identified with geographic coordinates on the map.': [
-    'Obyektning joylashuvi xaritada geografik koordinatalar bilan aniqlanadi.',
-    'Местоположение объекта определяется географическими координатами на карте.',
-  ],
-  'Checked against nine criteria': ['Toʻqqiz mezon boʻyicha tekshiriladi', 'Проверка по девяти критериям'],
-  'The inspector completes the site schematic against the established criteria.': [
-    'Inspektor belgilangan mezonlar asosida obyekt sxemasini toʻldiradi.',
-    'Инспектор заполняет схему участка по установленным критериям.',
-  ],
   'Imagery: Esri World Imagery. Markers show matching features visible around the site and are illustrative; the inspector records the actual findings.': [
     'Tasvir: Esri World Imagery. Belgilar obyekt atrofida koʻrinadigan tegishli joylarni koʻrsatadi va namunaviy; haqiqiy natijalarni inspektor qayd etadi.',
     'Снимки: Esri World Imagery. Метки показывают видимые вокруг участка объекты и носят иллюстративный характер; фактические результаты фиксирует инспектор.',
   ],
   'Accept or reject. Then the record locks.': ['Qabul yoki rad. Soʻng qayd qulflanadi.', 'Принять или отклонить. Затем запись блокируется.'],
-  'The inspector accepts or rejects the application. After that, the findings can no longer be edited.': [
-    'Inspektor arizani qabul qiladi yoki rad etadi. Shundan soʻng natijalarni tahrirlab boʻlmaydi.',
-    'Инспектор принимает или отклоняет заявку. После этого результаты больше нельзя изменить.',
-  ],
-  'The Intake Department reviews the file': ['Qabul boʻlimi hujjatlarni koʻrib chiqadi', 'Отдел приёма рассматривает дело'],
-  'It checks the application form, the project documents and the inspector’s site schematic.': [
-    'Boʻlim ariza shakli, loyiha hujjatlari va inspektorning obyekt sxemasini tekshiradi.',
-    'Он проверяет форму заявки, проектную документацию и схему участка инспектора.',
-  ],
   'Approve, return or reject, and rate the designer': ['Tasdiqlash, qaytarish yoki rad etish va loyihachini baholash', 'Одобрить, вернуть или отклонить и оценить проектировщика'],
-  'The department decides on the application and rates the project developer on a scale of 1 to 100.': [
-    'Boʻlim ariza boʻyicha qaror qabul qiladi va loyihachini 1 dan 100 gacha shkalada baholaydi.',
-    'Отдел принимает решение по заявке и оценивает разработчика проекта по шкале от 1 до 100.',
-  ],
 
   // ---------- Stage 2 ----------
   'Payment happens online': ['Toʻlov onlayn amalga oshiriladi', 'Оплата проходит онлайн'],
-  'Once the application is accepted, an invoice is issued and appears in the applicant’s personal account.': [
-    'Ariza qabul qilingach, invoys shakllantiriladi va buyurtmachining shaxsiy kabinetida paydo boʻladi.',
-    'После принятия заявки выставляется счёт, и он появляется в личном кабинете заявителя.',
-  ],
   'The applicant pays in a few clicks': ['Buyurtmachi bir necha bosishda toʻlaydi', 'Заявитель платит в несколько кликов'],
   'In the personal account, the applicant enters the invoice number and presses Pay. The payment goes straight to the Center’s account.': [
     'Shaxsiy kabinetda buyurtmachi invoys raqamini kiritadi va «Toʻlash» tugmasini bosadi. Toʻlov toʻgʻridan-toʻgʻri Markaz hisobiga tushadi.',
     'В личном кабинете заявитель вводит номер счёта и нажимает «Оплатить». Платёж сразу поступает на счёт Центра.',
   ],
   'Illustration; the invoice number is a sample.': ['Tasvir; invoys raqami namunaviy.', 'Иллюстрация; номер счёта условный.'],
-  'Paid, with no manual confirmation': ['Toʻlandi, qoʻlda tasdiqlashsiz', 'Оплачено, без ручного подтверждения'],
   'When the invoice is paid, the system records the payment and sets the status to “Paid” automatically.': [
     'Invoys toʻlangach, tizim toʻlovni qayd etadi va holatni avtomatik ravishda «Toʻlangan» ga oʻzgartiradi.',
     'Когда счёт оплачен, система фиксирует платёж и автоматически ставит статус «Оплачено».',
@@ -149,11 +94,6 @@ export const LOCALES = {
 
   // ---------- Stage 3 ----------
   'Assigned to the responsible expert': ['Masʼul ekspertga biriktiriladi', 'Назначается ответственному эксперту'],
-  'Once payment is made, the application is assigned to the expert responsible for its review.': [
-    'Toʻlov amalga oshirilgach, ariza uni koʻrib chiquvchi masʼul ekspertga biriktiriladi.',
-    'После оплаты заявка закрепляется за экспертом, ответственным за её рассмотрение.',
-  ],
-  'Deadlines and history keep themselves': ['Muddatlar va tarix oʻz-oʻzidan yuritiladi', 'Сроки и история ведутся сами'],
   'Deadlines are calculated automatically, the application appears in the expert’s account, and every action is recorded in the history.': [
     'Muddatlar avtomatik hisoblanadi, ariza ekspert kabinetida paydo boʻladi va har bir harakat tarixda qayd etiladi.',
     'Сроки рассчитываются автоматически, заявка появляется в кабинете эксперта, а каждое действие фиксируется в истории.',
@@ -166,42 +106,16 @@ export const LOCALES = {
     'Как и инспектор, ответственный эксперт выезжает на объект, чтобы увидеть ситуацию на месте.',
   ],
   'The expert checks the site on the ground': ['Ekspert obyektni joyida tekshiradi', 'Эксперт проверяет объект на месте'],
-  'The expert compares the inspector’s site schematic with the site itself and records the findings in the system.': [
-    'Ekspert inspektorning obyekt sxemasini joydagi holat bilan solishtiradi va natijalarni tizimga kiritadi.',
-    'Эксперт сверяет схему участка инспектора с самим объектом и вносит результаты в систему.',
-  ],
   'Imagery: Esri World Imagery. Markers are illustrative.': ['Tasvir: Esri World Imagery. Belgilar namunaviy.', 'Снимки: Esri World Imagery. Метки иллюстративные.'],
-  'The expert works from four sources': ['Ekspert toʻrtta manba asosida ishlaydi', 'Эксперт работает с четырьмя источниками'],
-  'The project documents, the inspector’s site schematic, the expert’s own site visit and the object’s coordinates.': [
-    'Loyiha hujjatlari, inspektorning obyekt sxemasi, ekspertning oʻzi obyektga chiqqandagi natijalar va obyekt koordinatalari.',
-    'Проектная документация, схема участка инспектора, собственный выезд эксперта на объект и координаты объекта.',
-  ],
-  'The conclusion is drafted in the system': ['Xulosa tizimda tayyorlanadi', 'Заключение готовится в системе'],
-  'The expert reviews the materials, carries out the analysis and drafts the conclusion in ECO SERVICE.': [
-    'Ekspert materiallarni koʻrib chiqadi, tahlil oʻtkazadi va xulosa loyihasini ECO SERVICE da tayyorlaydi.',
-    'Эксперт изучает материалы, проводит анализ и готовит проект заключения в ECO SERVICE.',
-  ],
 
   // ---------- Stage 5 ----------
   'Supervisors check the draft': ['Rahbarlar loyihani tekshiradi', 'Руководители проверяют проект'],
-  'If they find issues, the conclusion goes back to the expert, who resolves them and resubmits.': [
-    'Kamchilik topilsa, xulosa ekspertga qaytariladi; ekspert ularni bartaraf etib, qayta yuboradi.',
-    'Если есть замечания, заключение возвращается эксперту, который устраняет их и отправляет повторно.',
-  ],
   'Approved, and on to coordination': ['Tasdiqlandi va kelishuvga oʻtdi', 'Одобрено и передано на согласование'],
   'Once the supervisors approve, the conclusion moves to Stage 6.': ['Rahbarlar tasdiqlagach, xulosa 6-bosqichga oʻtadi.', 'После одобрения руководителями заключение переходит к этапу 6.'],
 
   // ---------- Stage 6 ----------
   'Coordinated with the National Committee': ['Milliy qoʻmita bilan kelishiladi', 'Согласование с Национальным комитетом'],
-  'The approved conclusion goes to two divisions of the National Committee of the Republic of Uzbekistan for Ecology and Climate Change.': [
-    'Tasdiqlangan xulosa Oʻzbekiston Respublikasi Ekologiya va iqlim oʻzgarishi milliy qoʻmitasining ikki tuzilmasiga yuboriladi.',
-    'Одобренное заключение направляется в два подразделения Национального комитета Республики Узбекистан по экологии и изменению климата.',
-  ],
   'Both divisions give their opinion': ['Ikkala tuzilma oʻz fikrini beradi', 'Оба подразделения дают заключение'],
-  'The Department of Environmental Policy and the State Environmental Control Inspectorate each review the conclusion.': [
-    'Ekologik siyosat departamenti va Davlat ekologik nazorat inspeksiyasi xulosani alohida koʻrib chiqadi.',
-    'Департамент экологической политики и Инспекция государственного экологического контроля рассматривают заключение.',
-  ],
   'Agreed, and forwarded to the director': ['Kelishildi va direktorga yuborildi', 'Согласовано и передано директору'],
   'With both opinions in, the agreed conclusion goes to the Center’s director.': [
     'Ikkala fikr olingach, kelishilgan xulosa Markaz direktoriga yuboriladi.',
@@ -209,7 +123,6 @@ export const LOCALES = {
   ],
 
   // ---------- Stage 7 ----------
-  'Every approval in one view': ['Barcha kelishuvlar bir oynada', 'Все согласования в одном окне'],
   'After all coordination steps, the conclusion reaches the Center’s director for final review.': [
     'Barcha kelishuv bosqichlaridan soʻng xulosa yakuniy koʻrib chiqish uchun Markaz direktoriga keladi.',
     'После всех согласований заключение поступает директору Центра на итоговое рассмотрение.',
@@ -222,11 +135,6 @@ export const LOCALES = {
 
   // ---------- Stage 8 and delivery ----------
   'Signed with E-IMZO': ['E-IMZO bilan imzolandi', 'Подписано E-IMZO'],
-  'The expert and the Center’s director sign the conclusion with an electronic signature, and it is finalized in the system.': [
-    'Ekspert va Markaz direktori xulosani elektron raqamli imzo bilan imzolaydi va u tizimda rasmiylashtiriladi.',
-    'Эксперт и директор Центра подписывают заключение электронной подписью, и оно оформляется в системе.',
-  ],
-  'Delivered through my.gov.uz': ['my.gov.uz orqali taqdim etiladi', 'Выдаётся через my.gov.uz'],
   'The applicant receives the signed conclusion on the same portal where the application began.': [
     'Buyurtmachi imzolangan xulosani ariza topshirgan portalning oʻzida oladi.',
     'Заявитель получает подписанное заключение на том же портале, где подавал заявку.',
@@ -242,7 +150,6 @@ export const LOCALES = {
     'Заявитель открывает личный кабинет на my.gov.uz, где заключение с подписью E-IMZO готово к скачиванию.',
   ],
   'Start to finish in 15–25 working days': ['Boshidan oxirigacha 15–25 ish kuni', 'От начала до конца за 15–25 рабочих дней'],
-  'Eight stages, one system, every action on record.': ['Sakkiz bosqich, bitta tizim, har bir harakat qayd etiladi.', 'Восемь этапов, одна система, каждое действие зафиксировано.'],
 
   // ---------- card blocks ----------
   'Conclusion · Application No.': ['Xulosa · Ariza №', 'Заключение · Заявка №'],
@@ -259,7 +166,6 @@ export const LOCALES = {
   'Object': ['Obyekt', 'Объект'],
   'Deadline': ['Muddat', 'Срок'],
   'Monitored': ['Nazoratda', 'На контроле'],
-  'A plot of about 10 × 10 m': ['Taxminan 10 × 10 m maydon', 'Участок около 10 × 10 м'],
   'Accept': ['Qabul qilish', 'Принять'],
   'Reject': ['Rad etish', 'Отклонить'],
   'Findings locked: no further editing': ['Natijalar qulflandi: tahrirlab boʻlmaydi', 'Результаты заблокированы: редактирование невозможно'],
@@ -272,11 +178,7 @@ export const LOCALES = {
   // ---------- visuals: shared ----------
   'Expert': ['Ekspert', 'Эксперт'],
   'Center Director': ['Markaz direktori', 'Директор Центра'],
-  'E-IMZO electronic signature': ['E-IMZO elektron imzosi', 'Электронная подпись E-IMZO'],
   'Signed': ['Imzolandi', 'Подписано'],
-  'General information': ['Umumiy maʼlumotlar', 'Общие сведения'],
-  'Environmental impact analysis': ['Atrof-muhitga taʼsir tahlili', 'Анализ воздействия на окружающую среду'],
-  'Conclusion and requirements': ['Xulosa va talablar', 'Заключение и требования'],
 
   // ---------- visuals: flow ----------
   'Submits the application': ['Arizani topshiradi', 'Подаёт заявку'],
@@ -357,14 +259,11 @@ export const LOCALES = {
   'Every action in the history': ['Har bir harakat tarixda', 'Каждое действие в истории'],
 
   // ---------- visuals: conclusion ----------
-  'Submitted with the application': ['Ariza bilan topshirilgan', 'Поданы вместе с заявкой'],
-  'Findings from the on-site inspection': ['Joyida oʻrganish natijalari', 'Результаты осмотра на месте'],
   'Expert’s site visit': ['Ekspertning obyektga chiqishi', 'Выезд эксперта на объект'],
   'The expert’s own findings on the ground': ['Ekspertning joydagi oʻz kuzatuvlari', 'Собственные наблюдения эксперта на месте'],
   'Object coordinates': ['Obyekt koordinatalari', 'Координаты объекта'],
   'Analysis': ['Tahlil', 'Анализ'],
   'Draft conclusion': ['Xulosa loyihasi', 'Проект заключения'],
-  'ECOLOGICAL EXPERTISE CONCLUSION': ['EKOLOGIK EKSPERTIZA XULOSASI', 'ЗАКЛЮЧЕНИЕ ЭКОЛОГИЧЕСКОЙ ЭКСПЕРТИЗЫ'],
   'Draft': ['Loyiha', 'Проект'],
 
   // ---------- visuals: review ----------
@@ -395,7 +294,6 @@ export const LOCALES = {
   'The conclusion is not approved': ['Xulosa tasdiqlanmaydi', 'Заключение не утверждается'],
 
   // ---------- visuals: signing ----------
-  'Finalized': ['Rasmiylashtirildi', 'Оформлено'],
 
   // ---------- visuals: phone ----------
   'Personal account': ['Shaxsiy kabinet', 'Личный кабинет'],
@@ -411,28 +309,12 @@ export const LOCALES = {
   ],
 
   // ---------- application form ----------
-  'The applicant fills in the application': ['Buyurtmachi arizani toʻldiradi', 'Заявитель заполняет заявку'],
-  'On my.gov.uz the applicant completes the application form, attaches the project documents and submits it.': [
-    'Buyurtmachi my.gov.uz da ariza shaklini toʻldiradi, loyiha hujjatlarini biriktiradi va yuboradi.',
-    'На my.gov.uz заявитель заполняет форму заявки, прикрепляет проектную документацию и отправляет её.',
-  ],
-  'Illustration; applicant data are hidden, sample values from the process deck.': [
-    'Tasvir; buyurtmachi maʼlumotlari yashirilgan, namunaviy qiymatlar jarayon taqdimotidan.',
-    'Иллюстрация; данные заявителя скрыты, образцы значений из презентации процесса.',
-  ],
   'Application for state ecological expertise': ['Davlat ekologik ekspertizasidan oʻtkazish uchun ariza', 'Заявка на государственную экологическую экспертизу'],
-  'Location': ['Joylashuvi', 'Местоположение'],
-  'Andijan region, Baliqchi district': ['Andijon viloyati, Baliqchi tumani', 'Андижанская область, Балыкчинский район'],
   'Attached': ['Biriktirildi', 'Прикреплено'],
   'Submit': ['Yuborish', 'Отправить'],
-  'Application submitted': ['Ariza yuborildi', 'Заявка отправлена'],
 
   // ---------- restricted zones ----------
   'Checked against restricted zones': ['Cheklangan zonalar boʻyicha tekshiriladi', 'Проверка по зонам ограничений'],
-  'The site’s coordinates are checked against four map layers: water protection zones, forestry lands, reservoirs and drinking groundwater deposits.': [
-    'Obyekt koordinatalari toʻrtta xarita qatlami bilan solishtiriladi: suv muhofaza zonalari, oʻrmon-ov xoʻjaliklari yerlari, suv omborlari va yer osti ichimlik suvi konlari.',
-    'Координаты объекта сверяются с четырьмя слоями карты: водоохранные зоны, земли лесоохотничьих хозяйств, водохранилища и месторождения подземных питьевых вод.',
-  ],
   'Layers: KMZ files of restricted zones (SMQZ as of 16.09.2024). The check and the distances are computed from the site coordinates.': [
     'Qatlamlar: cheklangan zonalarning KMZ fayllari (SMQZ 16.09.2024 holatiga). Tekshiruv va masofalar obyekt koordinatalaridan hisoblanadi.',
     'Слои: KMZ-файлы зон ограничений (СМҚЗ на 16.09.2024). Проверка и расстояния рассчитываются по координатам объекта.',
@@ -455,4 +337,311 @@ export const LOCALES = {
 
   // ---------- visuals: rail ----------
   'working days': ['ish kuni', 'рабочих дней'],
+  // ---------- digital emphasis: opening and stage texts ----------
+  'One application. Eight stages. Every step in digital form.': ['Bitta ariza. Sakkiz bosqich. Har bir qadam raqamli shaklda.', 'Одна заявка. Восемь этапов. Каждый шаг в цифровом виде.'],
+  'ECO SERVICE carries an application for state ecological expertise from submission to a signed conclusion entirely in digital form: no paper, no queues, no visits.': [
+    'ECO SERVICE davlat ekologik ekspertizasi arizasini topshirilganidan imzolangan xulosagacha toʻliq raqamli shaklda olib boradi: qogʻozsiz, navbatsiz, idoraga bormasdan.',
+    'ECO SERVICE ведёт заявку на государственную экологическую экспертизу от подачи до подписанного заключения полностью в цифровом виде: без бумаги, очередей и визитов.',
+  ],
+  'Eight stages, one digital system': ['Sakkiz bosqich, bitta raqamli tizim', 'Восемь этапов, одна цифровая система'],
+  'Every stage, from intake to signing, runs digitally inside ECO SERVICE.': ['Qabuldan imzolashgacha har bir bosqich ECO SERVICE ichida raqamli tarzda bajariladi.', 'Каждый этап, от приёма до подписания, проходит в цифровом виде внутри ECO SERVICE.'],
+  'Let’s follow one electronic application': ['Bitta elektron arizani kuzatib boramiz', 'Проследим одну электронную заявку'],
+  'A school building is planned in the Fergana Valley. Its electronic application enters the system as No. 371668581.': [
+    'Fargʻona vodiysida maktab binosi qurish rejalashtirilgan. Uning elektron arizasi tizimga № 371668581 bilan kiradi.',
+    'В Ферганской долине планируется здание школы. Его электронная заявка поступает в систему под № 371668581.',
+  ],
+  'The electronic application is submitted on the Single Portal of Interactive Public Services. Through system integration it goes straight into ECO SERVICE.': [
+    'Elektron ariza Interaktiv davlat xizmatlari yagona portalida topshiriladi. Tizimlararo integratsiya orqali u toʻgʻridan-toʻgʻri ECO SERVICE ga tushadi.',
+    'Электронная заявка подаётся на Едином портале интерактивных государственных услуг. Через межсистемную интеграцию она сразу поступает в ECO SERVICE.',
+  ],
+  'ECO SERVICE routes the application digitally, at the same moment, to the district ecological inspector and the Application Intake Department.': [
+    'ECO SERVICE arizani raqamli tarzda, bir vaqtning oʻzida tuman ekologik inspektori va Arizalarni qabul qilish boʻlimiga yoʻnaltiradi.',
+    'ECO SERVICE в цифровом виде, в один и тот же момент, направляет заявку районному экологическому инспектору и в Отдел приёма заявок.',
+  ],
+  'Every e-application carries the same key data': ['Har bir elektron arizada bir xil asosiy maʼlumotlar bor', 'Каждая электронная заявка содержит одни и те же ключевые данные'],
+  'The application appears in the inspector’s electronic account with its number, applicant, object and deadline.': [
+    'Ariza inspektorning elektron kabinetida raqami, buyurtmachisi, obyekti va muddati bilan paydo boʻladi.',
+    'Заявка появляется в электронном кабинете инспектора с номером, заявителем, объектом и сроком.',
+  ],
+  'The coordinates must match': ['Koordinatalar mos kelishi shart', 'Координаты должны совпасть'],
+  'On site, the inspector measures the corners with GPS. The system compares them with the coordinates in the application.': [
+    'Inspektor joyida obyekt burchaklarini GPS bilan oʻlchaydi. Tizim ularni arizadagi koordinatalar bilan solishtiradi.',
+    'На месте инспектор измеряет углы участка по GPS. Система сверяет их с координатами из заявки.',
+  ],
+  'Checked against nine criteria on the digital map': ['Raqamli xaritada toʻqqiz mezon boʻyicha tekshiriladi', 'Проверка по девяти критериям на цифровой карте'],
+  'The inspector examines the surroundings of the object on the satellite map and on the ground.': [
+    'Inspektor obyekt atrofini sunʼiy yoʻldosh xaritasida va joyning oʻzida oʻrganadi.',
+    'Инспектор изучает окрестности объекта на спутниковой карте и на месте.',
+  ],
+  'The system automatically checks the site’s coordinates against four digital map layers: water protection zones, forestry lands, reservoirs and drinking groundwater deposits.': [
+    'Tizim obyekt koordinatalarini toʻrtta raqamli xarita qatlami bilan avtomatik solishtiradi: suv muhofaza zonalari, oʻrmon-ov xoʻjaliklari yerlari, suv omborlari va yer osti ichimlik suvi konlari.',
+    'Система автоматически сверяет координаты объекта с четырьмя цифровыми слоями карты: водоохранные зоны, земли лесоохотничьих хозяйств, водохранилища и месторождения подземных питьевых вод.',
+  ],
+  'The inspector accepts or rejects the application in the system. After that, the electronic findings can no longer be edited.': [
+    'Inspektor arizani tizimda qabul qiladi yoki rad etadi. Shundan soʻng elektron natijalarni tahrirlab boʻlmaydi.',
+    'Инспектор принимает или отклоняет заявку в системе. После этого электронные результаты больше нельзя изменить.',
+  ],
+  'The Intake Department reviews the electronic file': ['Qabul boʻlimi elektron ishni koʻrib chiqadi', 'Отдел приёма рассматривает электронное дело'],
+  'It checks the electronic form, the project documents and the inspector’s digital site act, all in one window.': [
+    'Boʻlim elektron ariza shakli, loyiha hujjatlari va inspektorning raqamli dalolatnomasini bitta oynada tekshiradi.',
+    'Он проверяет электронную форму, проектную документацию и цифровой акт осмотра инспектора в одном окне.',
+  ],
+  'The department decides on the application in the system and rates the project developer on a scale of 1 to 100.': [
+    'Boʻlim ariza boʻyicha qarorni tizimda qabul qiladi va loyihachini 1 dan 100 gacha shkalada baholaydi.',
+    'Отдел принимает решение по заявке в системе и оценивает разработчика проекта по шкале от 1 до 100.',
+  ],
+  'Once the application is accepted, an electronic invoice is issued and appears in the applicant’s personal account.': [
+    'Ariza qabul qilingach, elektron invoys shakllantiriladi va buyurtmachining shaxsiy kabinetida paydo boʻladi.',
+    'После принятия заявки выставляется электронный счёт, и он появляется в личном кабинете заявителя.',
+  ],
+  'Paid: the system confirms it by itself': ['Toʻlandi: tizim oʻzi tasdiqlaydi', 'Оплачено: система подтверждает сама'],
+  'Once payment is made, the system assigns the application to the expert responsible for its review.': [
+    'Toʻlov amalga oshirilgach, tizim arizani uni koʻrib chiquvchi masʼul ekspertga biriktiradi.',
+    'После оплаты система закрепляет заявку за экспертом, ответственным за её рассмотрение.',
+  ],
+  'Deadlines and history are kept digitally': ['Muddatlar va tarix raqamli yuritiladi', 'Сроки и история ведутся в цифровом виде'],
+  'The expert compares the inspector’s digital site act with the site itself and records the findings in the system.': [
+    'Ekspert inspektorning raqamli dalolatnomasini joydagi holat bilan solishtiradi va natijalarni tizimga kiritadi.',
+    'Эксперт сверяет цифровой акт инспектора с самим объектом и вносит результаты в систему.',
+  ],
+  'All materials in one electronic file': ['Barcha materiallar bitta elektron ishda', 'Все материалы в одном электронном деле'],
+  'The e-application, the inspector’s digital site act, the expert’s own site visit, the public hearing protocol and the coordinates.': [
+    'Elektron ariza, inspektorning raqamli dalolatnomasi, ekspertning obyektga chiqishi, jamoatchilik eshituvi bayonnomasi va koordinatalar.',
+    'Электронная заявка, цифровой акт инспектора, выезд эксперта на объект, протокол общественных слушаний и координаты.',
+  ],
+  'The conclusion is drafted on the official blank': ['Xulosa rasmiy blankada tayyorlanadi', 'Заключение готовится на официальном бланке'],
+  'The expert fills in the electronic blank of the conclusion. The passport of ecological indicators comes from the e-application by itself.': [
+    'Ekspert xulosaning elektron blankasini toʻldiradi. Ekologik koʻrsatkichlar pasporti elektron arizadan avtomatik oʻtadi.',
+    'Эксперт заполняет электронный бланк заключения. Паспорт экологических показателей переносится из электронной заявки автоматически.',
+  ],
+  'They review the draft online. If they find issues, it goes back to the expert, who resolves them and resubmits.': [
+    'Ular loyihani onlayn koʻrib chiqadi. Kamchilik topilsa, xulosa ekspertga qaytariladi; ekspert ularni bartaraf etib, qayta yuboradi.',
+    'Они проверяют проект онлайн. Если есть замечания, заключение возвращается эксперту, который устраняет их и отправляет повторно.',
+  ],
+  'The approved conclusion goes electronically to two divisions of the National Committee of the Republic of Uzbekistan for Ecology and Climate Change.': [
+    'Tasdiqlangan xulosa elektron tarzda Oʻzbekiston Respublikasi Ekologiya va iqlim oʻzgarishi milliy qoʻmitasining ikki tuzilmasiga yuboriladi.',
+    'Одобренное заключение в электронном виде направляется в два подразделения Национального комитета Республики Узбекистан по экологии и изменению климата.',
+  ],
+  'The Department of Environmental Policy and the State Environmental Control Inspectorate each review the conclusion in the system.': [
+    'Ekologik siyosat departamenti va Davlat ekologik nazorat inspeksiyasi xulosani tizimda alohida koʻrib chiqadi.',
+    'Департамент экологической политики и Инспекция государственного экологического контроля рассматривают заключение в системе.',
+  ],
+  'Every approval in one digital view': ['Barcha kelishuvlar bitta raqamli oynada', 'Все согласования в одном цифровом окне'],
+  'The expert and the Center’s director sign the blank with an electronic digital signature. Each signature puts its QR code on the document.': [
+    'Ekspert va Markaz direktori blankani elektron raqamli imzo bilan imzolaydi. Har bir imzo hujjatga oʻz QR-kodini qoʻyadi.',
+    'Эксперт и директор Центра подписывают бланк электронной цифровой подписью. Каждая подпись ставит на документ свой QR-код.',
+  ],
+  'Delivered digitally through my.gov.uz': ['my.gov.uz orqali raqamli taqdim etiladi', 'Выдаётся в цифровом виде через my.gov.uz'],
+  'Eight stages, one digital system, every action on record.': ['Sakkiz bosqich, bitta raqamli tizim, har bir harakat qayd etiladi.', 'Восемь этапов, одна цифровая система, каждое действие зафиксировано.'],
+  'E-application, site inspection, intake review': ['Elektron ariza, joyida oʻrganish, qabul tekshiruvi', 'Электронная заявка, осмотр на месте, проверка приёма'],
+  'Site visit, public hearing, digital blank': ['Obyektga chiqish, jamoatchilik eshituvi, raqamli blanka', 'Выезд на объект, общественные слушания, цифровой бланк'],
+
+  // ---------- the electronic application, step by step ----------
+  'Step 1: the object, in a digital form': ['1-qadam: obyekt raqamli shaklda', 'Шаг 1: объект в цифровой форме'],
+  'On my.gov.uz the applicant fills in the electronic application step by step. The applicant’s own data come from the personal account automatically.': [
+    'Buyurtmachi my.gov.uz da elektron arizani bosqichma-bosqich toʻldiradi. Buyurtmachining oʻz maʼlumotlari shaxsiy kabinetdan avtomatik olinadi.',
+    'На my.gov.uz заявитель заполняет электронную заявку шаг за шагом. Его собственные данные подставляются из личного кабинета автоматически.',
+  ],
+  'Illustration; applicant data are hidden, sample values.': ['Tasvir; buyurtmachi maʼlumotlari yashirilgan, qiymatlar namunaviy.', 'Иллюстрация; данные заявителя скрыты, значения условные.'],
+  'Step 2: technical and economic indicators': ['2-qadam: texnik-iqtisodiy koʻrsatkichlar', 'Шаг 2: технико-экономические показатели'],
+  'Areas and buildings are entered as numbers. The form calculates the share of green space by itself and checks it against the norm.': [
+    'Maydonlar va binolar raqam bilan kiritiladi. Koʻkalamzorlashtirish ulushini forma oʻzi hisoblaydi va meʼyor bilan solishtiradi.',
+    'Площади и здания вводятся числами. Долю озеленения форма рассчитывает сама и сверяет с нормой.',
+  ],
+  'Illustration; sample values.': ['Tasvir; qiymatlar namunaviy.', 'Иллюстрация; значения условные.'],
+  'Step 3: impact on the environment': ['3-qadam: atrof-muhitga taʼsiri', 'Шаг 3: воздействие на окружающую среду'],
+  'Emissions into the air, water use, wastewater and waste are entered in digital tables. Totals are added up automatically.': [
+    'Atmosferaga chiqariladigan moddalar, suvdan foydalanish, oqova suvlar va chiqindilar raqamli jadvallarga kiritiladi. Jami avtomatik hisoblanadi.',
+    'Выбросы в атмосферу, водопотребление, сточные воды и отходы вносятся в цифровые таблицы. Итоги считаются автоматически.',
+  ],
+  'Step 4: the object drawn on the map': ['4-qadam: obyekt xaritada chiziladi', 'Шаг 4: объект на карте'],
+  'If they wish, the applicant draws the object’s outline on the satellite map or enters its coordinates. Documents are attached as files, and one click sends the application.': [
+    'Xohlasa, buyurtmachi obyekt chegarasini sunʼiy yoʻldosh xaritasida chizadi yoki koordinatalarini kiritadi. Hujjatlar fayl sifatida biriktiriladi, ariza bir bosishda yuboriladi.',
+    'По желанию заявитель обводит контур объекта на спутниковой карте или вводит его координаты. Документы прикрепляются файлами, заявка отправляется одним нажатием.',
+  ],
+  'Imagery: Esri World Imagery. Corner coordinates from the ECO SERVICE process deck.': [
+    'Tasvir: Esri World Imagery. Burchak koordinatalari ECO SERVICE jarayon taqdimotidan.',
+    'Снимки: Esri World Imagery. Координаты углов из презентации процесса ECO SERVICE.',
+  ],
+  'Electronic application': ['Elektron ariza', 'Электронная заявка'],
+  'Applicant data': ['Buyurtmachi maʼlumotlari', 'Данные заявителя'],
+  'Technical and economic indicators': ['Texnik-iqtisodiy koʻrsatkichlar', 'Технико-экономические показатели'],
+  'Environmental impact': ['Atrof-muhitga taʼsiri', 'Воздействие на среду'],
+  'Map and documents': ['Xarita va hujjatlar', 'Карта и документы'],
+  'Filled in from the personal account': ['Shaxsiy kabinetdan toʻldirildi', 'Заполнено из личного кабинета'],
+  'Name of the object of expertise': ['Davlat ekologik ekspertizasi obyektining nomi', 'Наименование объекта экспертизы'],
+  'Type of activity': ['Faoliyat turi', 'Вид деятельности'],
+  'Education: new construction': ['Taʼlim muassasasi: yangi qurilish', 'Образование: новое строительство'],
+  'Region': ['Viloyat', 'Область'],
+  'District': ['Tuman', 'Район'],
+  'Andijan region': ['Andijon viloyati', 'Андижанская область'],
+  'Baliqchi district': ['Baliqchi tumani', 'Балыкчинский район'],
+  'Draft environmental impact statement': ['Atrof-muhitga taʼsir toʻgʻrisidagi bayonot loyihasi', 'Проект заявления о воздействии на окружающую среду'],
+  'Main and auxiliary buildings and structures': ['Asosiy, yordamchi bino va inshootlari', 'Основные и вспомогательные здания и сооружения'],
+  'Total land area of the object': ['Obyektning umumiy yer maydoni', 'Общая площадь земельного участка'],
+  'Landscaped area': ['Koʻkalamzorlashtirilgan maydoni', 'Площадь озеленения'],
+  'Built-up area': ['Qurilish osti maydoni', 'Площадь застройки'],
+  'Paved area': ['Qoplama toʻshalgan maydoni', 'Площадь покрытий'],
+  'Total internal floor area of the buildings': ['Binolarning umumiy ichki maydoni', 'Общая внутренняя площадь зданий'],
+  'Green coverage': ['Koʻkalamzorlashtirish darajasi', 'Уровень озеленения'],
+  'Landscaped area ÷ total land area': ['Koʻkalamzor maydon ÷ umumiy yer maydoni', 'Площадь озеленения ÷ общая площадь участка'],
+  'Pollutants emitted into the atmosphere': ['Atmosferaga chiqariladigan ifloslantiruvchi moddalar', 'Загрязняющие вещества, выбрасываемые в атмосферу'],
+  'Code': ['Kod', 'Код'],
+  'Pollutant': ['Modda nomi', 'Вещество'],
+  'Class': ['Sinfi', 'Класс'],
+  'class': ['sinf', 'класс'],
+  'g/s': ['g/sek', 'г/сек'],
+  't/year': ['t/yil', 'т/год'],
+  'Total': ['Jami', 'Итого'],
+  'Nitrogen dioxide': ['Azot dioksidi', 'Диоксид азота'],
+  'Carbon monoxide': ['Uglerod oksidi', 'Оксид углерода'],
+  'Water use and wastewater': ['Suvdan foydalanish va oqova suvlar', 'Водопотребление и сточные воды'],
+  'Type': ['Turi', 'Вид'],
+  'Source or receiver': ['Manba yoki qabul qiluvchi', 'Источник или приёмник'],
+  'm³/day': ['m³/kun', 'м³/сут'],
+  'm³/year': ['m³/yil', 'м³/год'],
+  'Water use': ['Suvdan foydalanish', 'Водопотребление'],
+  'Wastewater': ['Oqova suv', 'Сточные воды'],
+  'District drinking-water network': ['Tuman ichimlik suvi tarmogʻi', 'Районная сеть питьевой воды'],
+  'District sewer network': ['Tuman kanalizatsiya tarmogʻi', 'Районная канализационная сеть'],
+  'Spent mercury lamps': ['Ishlatilgan simobli lampalar', 'Отработанные ртутные лампы'],
+  'Solid domestic waste': ['Qattiq maishiy chiqindilar', 'Твёрдые бытовые отходы'],
+  'Draw on the map': ['Xaritada chizish', 'Нарисовать на карте'],
+  'Enter coordinates': ['Koordinata kiritish', 'Ввести координаты'],
+  'Latitude': ['Kenglik', 'Широта'],
+  'Longitude': ['Uzunlik', 'Долгота'],
+  'Area': ['Maydon', 'Площадь'],
+  'Step': ['Qadam', 'Шаг'],
+  'Electronic application submitted': ['Elektron ariza yuborildi', 'Электронная заявка отправлена'],
+
+  // ---------- coordinates check ----------
+  'In the application': ['Arizada', 'В заявке'],
+  'Measured on site (GPS)': ['Joyida oʻlchangan (GPS)', 'Измерено на месте (GPS)'],
+  'Coordinates match: deviation under': ['Koordinatalar mos: ogʻish', 'Координаты совпадают: отклонение менее'],
+  'plot': ['maydon', 'участок'],
+
+  // ---------- the digital site inspection act ----------
+  'The digital site inspection act': ['Raqamli oʻrganish dalolatnomasi', 'Цифровой акт осмотра'],
+  'The inspector fills in the act in the system: the object on the map, its measured coordinates and each of the nine criteria, with a comment.': [
+    'Inspektor dalolatnomani tizimda toʻldiradi: xaritadagi obyekt, oʻlchangan koordinatalar va toʻqqiz mezonning har biri izoh bilan.',
+    'Инспектор заполняет акт в системе: объект на карте, измеренные координаты и каждый из девяти критериев с комментарием.',
+  ],
+  'Illustration; the findings are sample values, the zone line is computed from the KMZ layers.': [
+    'Tasvir; natijalar namunaviy, zonalar qatori KMZ qatlamlaridan hisoblangan.',
+    'Иллюстрация; результаты условные, строка о зонах рассчитана по слоям KMZ.',
+  ],
+  'Digital site inspection act · District Ecological Inspector': ['Raqamli oʻrganish dalolatnomasi · Tuman ekologik inspektori', 'Цифровой акт осмотра · Районный экологический инспектор'],
+  'Online': ['Onlayn', 'Онлайн'],
+  'Geographic coordinates of the object': ['Obyektning geografik koordinatalari', 'Географические координаты объекта'],
+  'Match the application coordinates': ['Ariza koordinatalariga mos', 'Совпадают с координатами заявки'],
+  'Present': ['Mavjud', 'Имеется'],
+  'Absent': ['Mavjud emas', 'Отсутствует'],
+  'Four trees along the edge of the plot': ['Hudud chetida 4 tup daraxt', '4 дерева по краю участка'],
+  'Two trees; to be transplanted under a permit': ['2 tup daraxt; ruxsatnoma asosida koʻchiriladi', '2 дерева; пересадка по разрешению'],
+  'Houses about 140 m to the east': ['Turar joylar sharqda taxminan 140 m', 'Жилые дома примерно в 140 м к востоку'],
+  'Irrigation canal about 145 m to the south-west': ['Sugʻorish kanali janubi-gʻarbda taxminan 145 m', 'Оросительный канал примерно в 145 м к юго-западу'],
+  'Fields about 160 m to the west': ['Ekin maydonlari gʻarbda taxminan 160 m', 'Поля примерно в 160 м к западу'],
+  'Road and power line about 150 m to the north': ['Avtoyoʻl va elektr tarmogʻi shimolda taxminan 150 m', 'Дорога и ЛЭП примерно в 150 м к северу'],
+  'Outside the zones; nearest': ['Zonalardan tashqarida; eng yaqini', 'Вне зон; ближайшая в'],
+  'Checked against the restricted-zone layers': ['Cheklangan zonalar qatlamlari bilan tekshirildi', 'Проверено по слоям зон ограничений'],
+
+  // ---------- the public hearing ----------
+  'The residents are heard: a public hearing': ['Aholi fikri eshitiladi: jamoatchilik eshituvi', 'Мнение жителей: общественные слушания'],
+  'Like the site visit, a public hearing is held: the people living near the object are heard about its construction. The hearing is announced online in advance.': [
+    'Obyektga chiqish singari jamoatchilik eshituvi ham oʻtkaziladi: obyekt yaqinida yashovchi aholining qurilish haqidagi fikri eshitiladi. Eshituv oldindan onlayn eʼlon qilinadi.',
+    'Как и выезд на объект, проводятся общественные слушания: жителей рядом с объектом выслушивают о его строительстве. Слушания заранее объявляются онлайн.',
+  ],
+  'Illustration; participants and figures are sample values.': ['Tasvir; ishtirokchilar va raqamlar namunaviy.', 'Иллюстрация; участники и цифры условные.'],
+  'The hearing protocol joins the electronic file': ['Eshituv bayonnomasi elektron ishga qoʻshiladi', 'Протокол слушаний попадает в электронное дело'],
+  'The signed protocol, photos and video are uploaded to the application’s electronic file. The expert sees them next to every other material.': [
+    'Imzolangan bayonnoma, fotosuratlar va video arizaning elektron ishiga yuklanadi. Ekspert ularni boshqa barcha materiallar bilan birga koʻradi.',
+    'Подписанный протокол, фотографии и видео загружаются в электронное дело заявки. Эксперт видит их рядом со всеми остальными материалами.',
+  ],
+  'District ecology department': ['Tuman ekologiya boʻlimi', 'Районный отдел экологии'],
+  'District administration': ['Tuman hokimligi', 'Хокимият района'],
+  'Sanitary and epidemiological service': ['Sanitariya-epidemiologik xizmat', 'Санитарно-эпидемиологическая служба'],
+  'Mahalla chairpersons': ['Mahalla raislari', 'Председатели махалли'],
+  'Residents of the neighbouring mahallas': ['Yaqin mahallalar aholisi', 'Жители соседних махаллей'],
+  'The district needs a new school': ['Tumanga yangi maktab kerak', 'Району нужна новая школа'],
+  'Please keep the trees': ['Daraxtlar saqlab qolinsin', 'Сохраните деревья'],
+  'Public hearing': ['Jamoatchilik eshituvi', 'Общественные слушания'],
+  'Announced online in advance': ['Oldindan onlayn eʼlon qilindi', 'Объявлено онлайн заранее'],
+  'Mahalla citizens’ assembly, Baliqchi district': ['Mahalla fuqarolar yigʻini, Baliqchi tumani', 'Сход граждан махалли, Балыкчинский район'],
+  'Participants': ['Ishtirokchilar', 'Участники'],
+  'In favour': ['Qoʻllab-quvvatladi', 'За'],
+  'Objections': ['Eʼtirozlar', 'Возражения'],
+  'Proposals': ['Takliflar', 'Предложения'],
+  'Uploaded to the electronic file': ['Elektron ishga yuklandi', 'Загружено в электронное дело'],
+  'Hearing protocol': ['Eshituv bayonnomasi', 'Протокол слушаний'],
+  'Photos': ['Fotosuratlar', 'Фотографии'],
+  'Video recording': ['Videoyozuv', 'Видеозапись'],
+  'Attached to application No.': ['Biriktirildi: ariza №', 'Прикреплено к заявке №'],
+
+  // ---------- the conclusion on the official blank ----------
+  'Object, indicators, impact, map': ['Obyekt, koʻrsatkichlar, taʼsir, xarita', 'Объект, показатели, воздействие, карта'],
+  'Inspector’s digital site act': ['Inspektorning raqamli dalolatnomasi', 'Цифровой акт инспектора'],
+  'Coordinates and nine criteria': ['Koordinatalar va toʻqqiz mezon', 'Координаты и девять критериев'],
+  'Public hearing protocol': ['Jamoatchilik eshituvi bayonnomasi', 'Протокол общественных слушаний'],
+  'Residents’ opinion, uploaded online': ['Aholi fikri, onlayn yuklangan', 'Мнение жителей, загружено онлайн'],
+  'The passport of indicators is filled in from the e-application automatically': ['Koʻrsatkichlar pasporti elektron arizadan avtomatik toʻldiriladi', 'Паспорт показателей заполняется из электронной заявки автоматически'],
+
+  // ---------- signing and delivery ----------
+  'Ecologist expert': ['Ekolog-ekspert', 'Эколог-эксперт'],
+  'Electronic digital signature': ['Elektron raqamli imzo', 'Электронная цифровая подпись'],
+  'Finalized in the system': ['Tizimda rasmiylashtirildi', 'Оформлено в системе'],
+  'The QR codes let anyone verify the conclusion online': ['QR-kodlar orqali xulosaning haqiqiyligini istalgan kishi onlayn tekshira oladi', 'По QR-кодам подлинность заключения может проверить онлайн любой'],
+  'Downloaded, opened: the official blank': ['Yuklab olindi, ochildi: rasmiy blanka', 'Скачано и открыто: официальный бланк'],
+  'The applicant opens the downloaded file: the same official conclusion blank, signed with E-IMZO. Its QR codes let anyone verify it online.': [
+    'Buyurtmachi yuklab olingan faylni ochadi: bu E-IMZO bilan imzolangan oʻsha rasmiy xulosa blankasi. Undagi QR-kodlar orqali uni onlayn tekshirish mumkin.',
+    'Заявитель открывает скачанный файл: тот же официальный бланк заключения с подписью E-IMZO. По его QR-кодам заключение можно проверить онлайн.',
+  ],
+  'Illustration; names and TINs are masked, sample values.': ['Tasvir; F.I.Sh. va STIR yashirilgan, qiymatlar namunaviy.', 'Иллюстрация; ФИО и ИНН скрыты, значения условные.'],
+  'Scan the QR code to verify the conclusion online': ['Xulosani onlayn tekshirish uchun QR-kodni skanerlang', 'Отсканируйте QR-код, чтобы проверить заключение онлайн'],
+  // ---------- the official conclusion blank ----------
+  'STATE INSTITUTION “STATE ECOLOGICAL EXPERTISE CENTER” OF THE NATIONAL COMMITTEE OF THE REPUBLIC OF UZBEKISTAN FOR ECOLOGY AND CLIMATE CHANGE': [
+    'OʻZBEKISTON RESPUBLIKASI EKOLOGIYA VA IQLIM OʻZGARISHI MILLIY QOʻMITASI “DAVLAT EKOLOGIK EKSPERTIZASI MARKAZI” DAVLAT MUASSASASI',
+    'ГОСУДАРСТВЕННОЕ УЧРЕЖДЕНИЕ «ЦЕНТР ГОСУДАРСТВЕННОЙ ЭКОЛОГИЧЕСКОЙ ЭКСПЕРТИЗЫ» НАЦИОНАЛЬНОГО КОМИТЕТА РЕСПУБЛИКИ УЗБЕКИСТАН ПО ЭКОЛОГИИ И ИЗМЕНЕНИЮ КЛИМАТА',
+  ],
+  'CONCLUSION OF THE STATE<br>ECOLOGICAL EXPERTISE': ['DAVLAT EKOLOGIK EKSPERTIZASI<br>XULOSASI', 'ЗАКЛЮЧЕНИЕ ГОСУДАРСТВЕННОЙ<br>ЭКОЛОГИЧЕСКОЙ ЭКСПЕРТИЗЫ'],
+  'Head:': ['Rahbar:', 'Руководитель:'],
+  'SERIAL NO.': ['TARTIB RAQAM', 'ПОРЯДКОВЫЙ НОМЕР'],
+  'DOCUMENT TYPE': ['HUJJAT TURI', 'ТИП ДОКУМЕНТА'],
+  '“Approved”': ['“Tasdiqlayman”', '«Утверждаю»'],
+  'Customer (initiator): {0}. Issued.': ['Buyurtmachi (tashabbuskor): {0} ga berildi.', 'Заказчик (инициатор): {0}. Выдано.'],
+  'TIN:': ['STIR:', 'ИНН:'],
+  'Object of state ecological expertise:': ['Davlat ekologik ekspertizasi obyekti:', 'Объект государственной экологической экспертизы:'],
+  '“School building construction in Baliqchi district, Andijan region”': ['“Andijon viloyati Baliqchi tumanida maktab binosi qurilishi”', '«Строительство здания школы в Балыкчинском районе Андижанской области»'],
+  'Application number:': ['Ariza raqami:', 'Номер заявки:'],
+  'Project developer:': ['Loyihani ishlab chiquvchining nomi:', 'Наименование разработчика проекта:'],
+  'Ecologist expert responsible for the state ecological expertise:': ['Davlat ekologik ekspertizasiga masʼul ekolog-ekspert:', 'Эколог-эксперт, ответственный за государственную экологическую экспертизу:'],
+  'Lead ecologist expert': ['Yetakchi ekolog ekspert', 'Ведущий эколог-эксперт'],
+  'Brief passport of ecological indicators': ['Ekologik koʻrsatkichlarning qisqacha pasporti', 'Краткий паспорт экологических показателей'],
+  'Areas': ['Yoʻnalishlar', 'Направления'],
+  'Main indicators': ['Asosiy koʻrsatkichlar', 'Основные показатели'],
+  'water consumption: {0} m³/year': ['isteʼmol suv hajmi: {0} m³/yil', 'объём водопотребления: {0} м³/год'],
+  'wastewater: {0} m³/year': ['oqova suv hajmi: {0} m³/yil', 'объём сточных вод: {0} м³/год'],
+  'Hazardous waste': ['Xavfli chiqindilar', 'Опасные отходы'],
+  'Impact on flora': ['Oʻsimlik dunyosiga taʼsiri', 'Воздействие на растительный мир'],
+  'Impact on fauna': ['Hayvonot olamiga taʼsiri', 'Воздействие на животный мир'],
+  'present': ['mavjud', 'имеется'],
+  'absent': ['mavjud emas', 'отсутствует'],
+  'Note: all calculations and standards are given in the annex.': ['Izoh: Barcha hisob-kitoblar va normativlar ilovada keltirilgan.', 'Примечание: все расчёты и нормативы приведены в приложении.'],
+  'Under Annex 1 approved by Resolution No. 234 of the Cabinet of Ministers of the Republic of Uzbekistan of 11 May 2026, this object of state ecological expertise belongs to {0} of environmental impact.': [
+    'Oʻzbekiston Respublikasi Vazirlar Mahkamasining 2026-yil 11-maydagi 234-son qarori bilan tasdiqlangan 1-ilovasiga muvofiq, ushbu davlat ekologik ekspertizasi obyekti atrof-muhitga taʼsir koʻrsatishning {0} toifasiga mansub.',
+    'Согласно приложению 1, утверждённому постановлением Кабинета Министров Республики Узбекистан от 11 мая 2026 года № 234, данный объект государственной экологической экспертизы относится к {0} воздействия на окружающую среду.',
+  ],
+  'low-risk category III': ['kam xavfli III', 'III категории (низкий риск)'],
+  'Result of the state ecological expertise:': ['Oʻtkazilgan davlat ekologik ekspertizasi natijasi:', 'Результат проведённой государственной экологической экспертизы:'],
+  'POSITIVE': ['IJOBIY', 'ПОЛОЖИТЕЛЬНЫЙ'],
+  'Conclusion of the state ecological expertise:': ['Davlat ekologik ekspertizasi xulosasi:', 'Заключение государственной экологической экспертизы:'],
+  'Not a legal document without the annex.': ['Ilovasiz huquqiy hujjat hisoblanmaydi.', 'Без приложения не является юридическим документом.'],
+  'Expert (full name):': ['Ekspert F.I.Sh.:', 'Эксперт Ф.И.О.:'],
+  'Date of issue:': ['Berilgan sana:', 'Дата выдачи:'],
+  'Valid until:': ['Amal qilish muddati:', 'Срок действия:'],
+  'ELECTRONIC DIGITAL SIGNATURES:': ['ELEKTRON RAQAMLI IMZOLAR:', 'ЭЛЕКТРОННЫЕ ЦИФРОВЫЕ ПОДПИСИ:'],
+  'Head of the Center': ['Markaz rahbari', 'Руководитель Центра'],
+  'The ecologist expert’s conclusion in the annex, on the object’s compliance with ecological requirements, the coordinates of its location points, environmental protection measures, mandatory requirements and more, is an integral part of this conclusion of the state ecological expertise, and its requirements are binding.': [
+    'Davlat ekologik ekspertizasi obyektining ekologik talablarga muvofiqligi, joylashuv nuqtalari koordinatalari, atrof-muhitni muhofaza qilish chora-tadbirlari, bajarilishi shart boʻlgan talablar va boshqalar toʻgʻrisida ilovada keltirilgan ekolog-ekspert xulosasi ushbu davlat ekologik ekspertizasi xulosasining ajralmas qismi hamda unda belgilangan talablar bajarilishi shart hisoblanadi.',
+    'Приложенное заключение эколога-эксперта о соответствии объекта экологическим требованиям, координатах точек размещения, мерах по охране окружающей среды, обязательных требованиях и прочем является неотъемлемой частью настоящего заключения государственной экологической экспертизы, и его требования обязательны к исполнению.',
+  ],
 };

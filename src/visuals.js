@@ -3,7 +3,12 @@
 // fast-forwards the same timeline, so the animated and the static states never drift apart.
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
-import { APP_NO, INVOICE_NO, SITE_COORDS, STAGES, STAGE_NOTES } from './data.js';
+import {
+  AIR, AIR_TOTAL, APP_NO, CRITERIA, GREEN_SHARE, HAZ_WASTE, INVOICE_NO, MSW, SEWAGE, SITE_AREA, SITE_COORDS, SITE_GPS,
+  STAGES, STAGE_NOTES, TEP, WATER, num,
+} from './data.js';
+import { SIGN_TIMES, blank, minimap } from './blank.js';
+import { ZONES, fmtDistance, zoneName } from './zones.js';
 import { icon, svgIcon } from './icons.js';
 import { railX } from './rail.js';
 import { t } from './i18n.js';
@@ -73,26 +78,6 @@ const paperHead = (title) => `
     <span class="pd-id">${idLine()}</span>
   </header>`;
 
-const SECTIONS = ['General information', 'Environmental impact analysis', 'Conclusion and requirements'].map(t);
-const paperSections = (done = false) => `
-  <ol class="pd-secs">
-    ${SECTIONS.map((s, i) => `
-      <li class="${done ? 'done' : ''}">
-        <div class="pd-row"><span class="pd-n mono">${i + 1}</span><span class="pd-st">${s}</span><span class="pd-ok">${icon('check')}</span></div>
-        <i class="pd-rule"></i><i class="pd-rule"></i>
-      </li>`).join('')}
-  </ol>`;
-
-const paperSigns = () => `
-  <div class="pd-signs">
-    ${[t('Expert'), t('Center Director')].map((role) => `
-      <div class="pd-sign">
-        <div class="pd-eimzo"><span class="pd-ek">${icon('keyRound')}${t('E-IMZO electronic signature')}</span><span class="chip leaf">${icon('check')}${t('Signed')}</span></div>
-        <i class="pd-sline"></i>
-        <span class="pd-role">${role}</span>
-      </div>`).join('')}
-  </div>`;
-
 function viz(host, html, phases) {
   const el = toEl(html);
   host.appendChild(el);
@@ -135,51 +120,202 @@ function viz(host, html, phases) {
   };
 }
 
-/* ---------- Stage 1: the applicant fills in the application on my.gov.uz ---------- */
+/* ---------- Stage 1: the electronic application on my.gov.uz, step by step ----------
+   The form follows the portal: one tab per step, the applicant's own data already filled in.
+   Phase 0: step 1, the object of expertise.
+   Phase 1: step 2, technical and economic indicators; the green share is computed by the form.
+   Phase 2: step 3, environmental impact: emissions, water and waste; totals add themselves up.
+   Phase 3: step 4, the object drawn on the satellite map, documents attached, submitted. */
+const typed = (text, mono = false) => `<span class="typed ${mono ? 'mono' : ''}" data-text="${text}"></span>`;
+const inpField = (label, value, { sel = false, wide = false, n = false } = {}) => `
+  <label class="ap-f ${wide ? 'wide' : ''}"><span class="ap-l">${label}</span>
+    <span class="inp ${n ? 'n' : ''}">${value}${sel ? `<span class="sel-ic">${icon('chevronDown')}</span>` : ''}<i class="caret"></i><span class="ap-ok">${icon('check')}</span></span></label>`;
+
+// Each input gets focus, its value is typed (or revealed), then it is marked as done.
+function fillInputs(tl, scope, { fast = false } = {}) {
+  qa(scope, '.ap-f').forEach((f, i) => {
+    const inp = q(f, '.inp');
+    tl.call(() => inp.classList.add('focus'), null, i ? '+=0.06' : '+=0.15');
+    const tx = q(f, '.typed');
+    if (tx) {
+      const k = fast ? 0.012 : 0.02;
+      typeIn(tl, tx, tx.dataset.text, { d: Math.min(fast ? 0.5 : 0.85, 0.22 + tx.dataset.text.length * k), at: '+=0.04' });
+    } else tl.fromTo(q(f, '.rv'), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.4, ease: 'power2.out' }, '+=0.04');
+    tl.call(() => { inp.classList.remove('focus'); inp.classList.add('done'); }, null, '+=0.04');
+  });
+}
+
+function countUp(tl, el, to, d, { dur = 0.9, at, suffix = '' } = {}) {
+  const o = { v: 0 };
+  tl.to(o, { v: to, duration: dur, ease: 'power2.out', onUpdate: () => { el.textContent = `${num(o.v, d)}${suffix}`; } }, at);
+}
+
+function press(tl, btn, at = '+=0.25') {
+  tl.to(btn, { scale: 0.93, duration: 0.14, ease: 'power2.in' }, at);
+  tl.call(() => btn.classList.add('pressed'));
+  tl.to(btn, { scale: 1, duration: 0.45, ease: 'back.out(3)' });
+  tl.call(() => btn.classList.remove('pressed'), null, '+=0.15');
+}
+
 function apply(host) {
-  const [la, lo] = SITE_COORDS[0];
-  const field = (cls, label, value, wide = false) =>
-    `<label class="ap-f ${cls} ${wide ? 'wide' : ''}"><span class="ap-l">${label}</span><span class="inp">${value}<i class="caret"></i><span class="ap-ok">${icon('check')}</span></span></label>`;
-  const typed = (text, mono = false) => `<span class="typed ${mono ? 'mono' : ''}" data-text="${text}"></span>`;
+  const TABS = ['Applicant data', 'Object of expertise', 'Technical and economic indicators', 'Environmental impact', 'Map and documents'].map(t);
+  const m2 = (s) => `${t(s)}, m²`;
+  const tbl = (cls, title, head, rows, total) => `
+    <section class="ap-tb ${cls}">
+      <h4>${title}</h4>
+      <table>
+        <thead><tr>${head.map((h) => `<th>${h}</th>`).join('')}</tr></thead>
+        <tbody>
+          ${rows.map((r) => `<tr class="row">${r.map((c) => `<td>${c}</td>`).join('')}</tr>`).join('')}
+          ${total ? `<tr class="tot">${total.map((c) => `<td>${c}</td>`).join('')}</tr>` : ''}
+        </tbody>
+      </table>
+    </section>`;
+  const mono = (v) => `<span class="mono">${v}</span>`;
+  const cnt = (v, d) => `<span class="mono cnt" data-v="${v}" data-d="${d}">${num(0, d)}</span>`;
+
   return viz(host, `
   <div class="viz viz-apply">
     <section class="sheet ap-win">
-      <header class="pw-hd"><span class="pw-logo">${icon('landmark')}</span><div><b>my.gov.uz</b><span>${t('Single Portal of Interactive Public Services')}</span></div></header>
+      <header class="pw-hd"><span class="pw-logo">${icon('landmark')}</span><div><b>my.gov.uz</b><span>${t('Single Portal of Interactive Public Services')}</span></div><span class="chip cyan pw-e">${icon('monitor')}${t('Electronic application')}</span></header>
       <div class="ap-body">
         <h3 class="ap-title">${t('Application for state ecological expertise')}</h3>
-        <div class="ap-grid">
-          ${field('f0', t('Applicant: full name or company name'), '<i class="redact w9 rv"></i>')}
-          ${field('f1', t('TIN / PINFL'), '<i class="redact w6 rv"></i>')}
-          ${field('f2', t('Object of expertise'), typed(t('School building construction')))}
-          ${field('f3', t('Environmental impact category'), `${typed(t('Category III'))}<span class="sel-ic">${icon('chevronDown')}</span>`)}
-          ${field('f4', t('Location'), typed(t('Andijan region, Baliqchi district')))}
-          ${field('f5', t('Object coordinates'), typed(`${la.toFixed(5)}, ${lo.toFixed(5)} …`, true))}
+        <ol class="ap-tabs">${TABS.map((s, i) => `<li class="ap-tab ${i === 0 ? 'done' : ''}"><span class="n mono">${i ? i : icon('check')}</span><span class="tt">${s}</span></li>`).join('')}</ol>
+        <div class="ap-panes">
+          <div class="ap-pane p0">
+            <div class="ap-auto">${icon('fingerprint')}<span><b>${t('Applicant')}</b> <i class="redact w9"></i> · ${t('TIN / PINFL')} <i class="redact w6"></i></span><span class="chip leaf">${icon('check')}${t('Filled in from the personal account')}</span></div>
+            <div class="ap-grid">
+              ${inpField(t('Name of the object of expertise'), typed(t('School building construction')), { wide: true })}
+              ${inpField(t('Type of activity'), typed(t('Education: new construction')), { sel: true })}
+              ${inpField(t('Environmental impact category'), typed(t('Category III')), { sel: true })}
+              ${inpField(t('Region'), typed(t('Andijan region')), { sel: true })}
+              ${inpField(t('District'), typed(t('Baliqchi district')), { sel: true })}
+              ${inpField(t('Type of materials'), typed(t('Draft environmental impact statement')), { sel: true, wide: true })}
+            </div>
+          </div>
+          <div class="ap-pane p1">
+            <div class="ap-grid tep">
+              ${inpField(t('Main and auxiliary buildings and structures'), typed(num(TEP.buildings), true), { n: true })}
+              ${inpField(m2('Total land area of the object'), typed(num(TEP.land), true), { n: true })}
+              ${inpField(m2('Landscaped area'), typed(num(TEP.green), true), { n: true })}
+              ${inpField(m2('Built-up area'), typed(num(TEP.built), true), { n: true })}
+              ${inpField(m2('Paved area'), typed(num(TEP.paved), true), { n: true })}
+              ${inpField(m2('Total internal floor area of the buildings'), typed(num(TEP.floor), true), { n: true })}
+            </div>
+            <div class="ap-calc">
+              <span class="ck-ic">${icon('calculator')}</span>
+              <div class="ac-t"><b>${t('Green coverage')}</b><span>${t('Landscaped area ÷ total land area')}</span></div>
+              <span class="ac-bar"><i></i><em style="left:30%"><span>≥ 30%</span></em></span>
+              <b class="mono ac-v">0.0%</b>
+              <span class="chip cyan ac-chip">${icon('check')}${t('Calculated automatically')}</span>
+            </div>
+          </div>
+          <div class="ap-pane p2">
+            ${tbl('air', t('Pollutants emitted into the atmosphere'),
+              ['№', t('Code'), t('Pollutant'), t('Class'), t('g/s'), t('t/year')],
+              AIR.map((a, i) => [i + 1, mono(a.code), t(a.name), `${a.cls} ${t('class')}`, mono(num(a.gs, 4)), mono(num(a.ty, 4))]),
+              ['', '', `<b>${t('Total')}</b>`, '', cnt(AIR_TOTAL.gs, 4), cnt(AIR_TOTAL.ty, 4)])}
+            <div class="ap-tb2">
+              ${tbl('wat', t('Water use and wastewater'),
+                [t('Type'), t('Source or receiver'), t('m³/day'), t('m³/year')],
+                [[t('Water use'), t('District drinking-water network'), mono(num(WATER.day, 1)), mono(num(WATER.year))],
+                 [t('Wastewater'), t('District sewer network'), mono(num(SEWAGE.day, 1)), mono(num(SEWAGE.year))]])}
+              ${tbl('wst', t('Waste'),
+                [t('Code'), t('Waste'), t('Class'), t('t/year')],
+                [[mono(HAZ_WASTE.code), t('Spent mercury lamps'), 'I', mono(num(HAZ_WASTE.ty, 3))],
+                 [mono(MSW.code), t('Solid domestic waste'), 'V', mono(num(MSW.ty, 1))]])}
+            </div>
+          </div>
+          <div class="ap-pane p3">
+            <div class="ap-mapw">
+              <div class="ap-tools"><span class="opt sel">${icon('penLine')}${t('Draw on the map')}</span><span class="opt">${icon('locateFixed')}${t('Enter coordinates')}</span></div>
+              <div class="ap-map">${minimap(SITE_COORDS, { W: 180, H: 120 })}<span class="ap-pen">${icon('penLine')}</span></div>
+            </div>
+            <div class="ap-crd">
+              <table>
+                <thead><tr><th>№</th><th>${t('Latitude')}</th><th>${t('Longitude')}</th></tr></thead>
+                <tbody>${SITE_COORDS.map(([la, lo], i) => `<tr class="row"><td>${i + 1}</td><td class="mono">${la.toFixed(5)}</td><td class="mono">${lo.toFixed(5)}</td></tr>`).join('')}</tbody>
+              </table>
+              <p class="ap-area">${icon('scan')}<span>${t('Area')}: <b class="mono">≈ ${num(SITE_AREA)} m²</b></span><span class="chip cyan">${t('Calculated automatically')}</span></p>
+              <div class="ap-att"><span class="att-ic">${icon('paperclip')}</span><span class="att-t"><b>${t('Project documents')}</b><span class="att-bar"><i></i></span></span><span class="att-ok chip leaf">${icon('check')}${t('Attached')}</span></div>
+            </div>
+          </div>
         </div>
-        <div class="ap-att"><span class="att-ic">${icon('paperclip')}</span><span class="att-t"><b>${t('Project documents')}</b><span class="att-bar"><i></i></span></span><span class="att-ok chip leaf">${icon('check')}${t('Attached')}</span></div>
-        <span class="btn ap-send">${icon('send')}${t('Submit')}</span>
+        <div class="ap-foot">
+          <span class="ap-stepn">${t('Step')} <b class="mono">1</b> / 4</span>
+          <span class="btn ap-next">${t('Next')}${icon('arrowRight')}</span>
+          <span class="btn ap-send">${icon('send')}${t('Submit')}</span>
+        </div>
       </div>
     </section>
-    <div class="ap-done chip leaf">${icon('circleCheck')}${t('Application submitted')} · № <span class="mono">${APP_NO}</span></div>
-  </div>`, [
-    (r, tl) => {
+    <div class="ap-done chip leaf">${icon('circleCheck')}${t('Electronic application submitted')} · № <span class="mono">${APP_NO}</span></div>
+  </div>`, [0, 1, 2, 3].map((k) => (r, tl) => {
+    const pane = q(r, `.ap-pane.p${k}`);
+    if (k === 0) {
       tl.from(q(r, '.ap-win'), { autoAlpha: 0, y: 30, duration: 0.9, ease: 'expo.out' });
-      tl.from(qa(r, '.ap-f, .ap-att'), { autoAlpha: 0, y: 10, duration: 0.5, ease: 'expo.out', stagger: 0.06 }, '<0.3');
-      qa(r, '.ap-f').forEach((f, i) => {
-        const inp = q(f, '.inp');
-        tl.call(() => inp.classList.add('focus'), null, i ? '+=0.08' : '+=0.2');
-        const tx = q(f, '.typed');
-        if (tx) typeIn(tl, tx, tx.dataset.text, { d: Math.min(0.9, 0.3 + tx.dataset.text.length * 0.022), at: '+=0.05' });
-        else tl.fromTo(q(f, '.rv'), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.45, ease: 'power2.out' }, '+=0.05');
-        tl.call(() => { inp.classList.remove('focus'); inp.classList.add('done'); }, null, '+=0.05');
+      tl.from(qa(r, '.ap-tab'), { autoAlpha: 0, y: 8, duration: 0.5, ease: 'expo.out', stagger: 0.06 }, '<0.3');
+    } else {
+      press(tl, q(r, '.ap-next'), '+=0.1');
+      tl.to(q(r, `.ap-pane.p${k - 1}`), { autoAlpha: 0, x: -24, duration: 0.35, ease: 'power2.in' });
+    }
+    tl.call(() => {
+      qa(r, '.ap-tab').forEach((tb, i) => { tb.classList.toggle('done', i <= k); tb.classList.toggle('now', i === k + 1); });
+      q(r, '.ap-stepn b').textContent = String(k + 1);
+      r.classList.toggle('last', k === 3);
+    });
+    tl.fromTo(pane, { autoAlpha: 0, x: 24 }, { autoAlpha: 1, x: 0, duration: 0.6, ease: 'expo.out' });
+
+    if (k === 0) {
+      tl.fromTo(q(pane, '.ap-auto'), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.7, ease: 'power2.out' }, '<0.2');
+      fillInputs(tl, pane);
+    }
+    if (k === 1) {
+      fillInputs(tl, pane, { fast: true });
+      tl.fromTo(q(pane, '.ap-calc'), { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: 'expo.out' }, '+=0.15');
+      tl.to(r, { '--green': `${Math.min(GREEN_SHARE, 100)}%`, duration: 1, ease: 'power2.out' }, '+=0.1');
+      countUp(tl, q(pane, '.ac-v'), GREEN_SHARE, 1, { dur: 1, at: '<', suffix: '%' });
+      tl.fromTo(q(pane, '.ac-chip'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(2.2)' });
+    }
+    if (k === 2) {
+      qa(pane, '.ap-tb').forEach((tb, i) => {
+        tl.from(tb, { autoAlpha: 0, y: 12, duration: 0.5, ease: 'expo.out' }, i ? '<0.25' : '<0.15');
+        tl.from(qa(tb, 'tr.row'), { autoAlpha: 0, x: -14, duration: 0.45, ease: 'expo.out', stagger: 0.22 }, '<0.2');
       });
-      tl.to(r, { '--att': '100%', duration: 1, ease: 'power2.inOut' }, '+=0.15');
-      tl.fromTo(q(r, '.att-ok'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(2.2)' });
-      tl.to(q(r, '.ap-send'), { scale: 0.93, duration: 0.14, ease: 'power2.in' }, '+=0.3');
+      tl.from(q(pane, 'tr.tot'), { autoAlpha: 0, duration: 0.4 }, '+=0.1');
+      qa(pane, '.cnt').forEach((c, i) => countUp(tl, c, Number(c.dataset.v), Number(c.dataset.d), { dur: 0.9, at: i ? '<' : '<0.1' }));
+    }
+    if (k === 3) {
+      const map = q(pane, '.ap-map');
+      const pen = q(pane, '.ap-pen');
+      const vs = qa(pane, '.mm-v');
+      const rows = qa(pane, 'tr.row');
+      const at = (i) => {
+        const a = map.getBoundingClientRect();
+        const b = q(vs[i], 'circle').getBoundingClientRect();
+        return [b.left + b.width / 2 - a.left, b.top + b.height / 2 - a.top];
+      };
+      tl.set([...vs, ...rows, q(pane, '.mm-poly'), q(pane, '.mm-fill')], { autoAlpha: 0 });
+      tl.set(pen, { autoAlpha: 1, x: () => at(0)[0] + 60, y: () => at(0)[1] + 50 });
+      vs.forEach((v, i) => {
+        tl.to(pen, { x: () => at(i)[0], y: () => at(i)[1], duration: i ? 0.55 : 0.7, ease: 'power2.inOut' }, i ? '+=0.05' : '+=0.2');
+        tl.fromTo(v, { autoAlpha: 0, scale: 0.2, transformOrigin: '50% 50%' }, { autoAlpha: 1, scale: 1, duration: 0.4, ease: 'back.out(3)' });
+        tl.fromTo(rows[i], { autoAlpha: 0, x: -10 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: 'expo.out' }, '<');
+      });
+      tl.to(pen, { x: () => at(0)[0], y: () => at(0)[1], duration: 0.55, ease: 'power2.inOut' }, '+=0.05');
+      draw(tl, q(pane, '.mm-poly'), { d: 0.9, at: '<' });
+      tl.to(q(pane, '.mm-fill'), { autoAlpha: 1, duration: 0.5 }, '>-0.2');
+      tl.to(pen, { autoAlpha: 0, duration: 0.3 }, '<');
+      tl.from(q(pane, '.ap-area'), { autoAlpha: 0, y: 8, duration: 0.5, ease: 'expo.out' }, '+=0.05');
+      tl.from(q(pane, '.ap-att'), { autoAlpha: 0, y: 8, duration: 0.5, ease: 'expo.out' }, '+=0.1');
+      tl.to(r, { '--att': '100%', duration: 0.9, ease: 'power2.inOut' });
+      tl.fromTo(q(pane, '.att-ok'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(2.2)' });
+      tl.fromTo(q(r, '.ap-send'), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, '+=0.1');
+      tl.to(q(r, '.ap-send'), { scale: 0.93, duration: 0.14, ease: 'power2.in' }, '+=0.25');
       tl.call(() => q(r, '.ap-send').classList.add('pressed'));
       tl.to(q(r, '.ap-send'), { scale: 1, duration: 0.5, ease: 'back.out(3)' });
       tl.fromTo(q(r, '.ap-done'), { autoAlpha: 0, y: 12, scale: 0.9 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(2)' }, '<0.15');
-    },
-  ]);
+    }
+  }));
 }
 
 /* ---------- Stage 1: my.gov.uz -> ECO SERVICE -> two units at once ---------- */
@@ -464,37 +600,195 @@ function assign(host) {
   ]);
 }
 
-/* ---------- Stage 4: the conclusion ---------- */
-function conclusion(host) {
-  const [la, lo] = SITE_COORDS[0];
+/* ---------- Stage 1: the inspector's digital site inspection act ----------
+   The form the inspector fills in on the system: the object on the satellite map, its corners as
+   measured on site (they must match the application), and the nine criteria with comments. */
+let ZRES = null;
+ZONES.then((res) => { ZRES = res; });
+
+function inspect(host) {
+  const Y = t('Present');
+  const N = t('Absent');
+  let zv = N;
+  let zc = t('Checked against the restricted-zone layers');
+  if (ZRES?.complete) {
+    if (ZRES.insideAny) {
+      const hit = ZRES.layers.find((l) => l.inside?.length);
+      zv = Y;
+      zc = zoneName(hit.inside[0]);
+    } else zc = `${t('Outside the zones; nearest')} ${fmtDistance(ZRES.nearest.distance)}`;
+  }
+  const FOUND = [
+    [Y, t('Four trees along the edge of the plot')],
+    [Y, t('Two trees; to be transplanted under a permit')],
+    [N, '—'],
+    [Y, t('Houses about 140 m to the east')],
+    [Y, t('Irrigation canal about 145 m to the south-west')],
+    [Y, t('Fields about 160 m to the west')],
+    [Y, t('Road and power line about 150 m to the north')],
+    [N, '—'],
+    [zv, zc],
+  ];
   return viz(host, `
-  <div class="viz viz-concl">
-    <svg class="links" aria-hidden="true"></svg>
-    <div class="srcs">
-      <div class="src">${icon('fileText')}<div><b>${t('Project documents')}</b><span>${t('Submitted with the application')}</span></div></div>
-      <div class="src">${icon('mapPinned')}<div><b>${t('Inspector’s site schematic')}</b><span>${t('Findings from the on-site inspection')}</span></div></div>
-      <div class="src">${icon('userCheck')}<div><b>${t('Expert’s site visit')}</b><span>${t('The expert’s own findings on the ground')}</span></div></div>
-      <div class="src">${icon('locateFixed')}<div><b>${t('Object coordinates')}</b><span class="mono">${la.toFixed(5)}, ${lo.toFixed(5)} …</span></div></div>
+  <div class="viz viz-insp">
+    <section class="sheet">
+      ${sheetHead(`${t('Application review')} № <span class="mono">${APP_NO}</span>`, t('Digital site inspection act · District Ecological Inspector'), `<span class="chip cyan">${icon('monitor')}${t('Online')}</span>`)}
+      <div class="in-top">
+        <div class="in-map">${minimap(SITE_GPS, { W: 250, H: 112.5 })}</div>
+        <div class="in-crd">
+          <h4>${t('Geographic coordinates of the object')}</h4>
+          <table>
+            <thead><tr><th>№</th><th>${t('Latitude')}</th><th>${t('Longitude')}</th></tr></thead>
+            <tbody>${SITE_GPS.map(([la, lo], i) => `<tr><td>${i + 1}</td><td class="mono">${la.toFixed(6)}</td><td class="mono">${lo.toFixed(6)}</td></tr>`).join('')}</tbody>
+          </table>
+          <span class="chip leaf in-match">${icon('check')}${t('Match the application coordinates')}</span>
+        </div>
+      </div>
+      <div class="in-rows">
+        ${CRITERIA.map((c, i) => `
+          <div class="in-r">
+            <span class="in-l">${icon(c.icon)}<span>${c.label}</span></span>
+            <span class="inp sel ${FOUND[i][0] === Y ? 'y' : 'n'}"><span class="typed" data-text="${FOUND[i][0]}"></span><span class="sel-ic">${icon('chevronDown')}</span></span>
+            <span class="inp cm"><span class="typed" data-text="${FOUND[i][1]}"></span><i class="caret"></i></span>
+          </div>`).join('')}
+      </div>
+    </section>
+  </div>`, [
+    (r, tl) => {
+      tl.from(q(r, '.sheet'), { autoAlpha: 0, y: 30, duration: 0.9, ease: 'expo.out' });
+      tl.from([q(r, '.in-map'), q(r, '.in-crd')], { autoAlpha: 0, y: 10, duration: 0.6, ease: 'expo.out', stagger: 0.1 }, '<0.3');
+      tl.from(qa(r, '.in-crd tbody tr'), { autoAlpha: 0, x: -8, duration: 0.4, ease: 'expo.out', stagger: 0.08 }, '<0.2');
+      tl.fromTo(q(r, '.in-match'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(2.2)' });
+      tl.from(qa(r, '.in-r'), { autoAlpha: 0, y: 6, duration: 0.4, ease: 'expo.out', stagger: 0.04 }, '<');
+      qa(r, '.in-r').forEach((row) => {
+        const [s, c] = qa(row, '.inp');
+        const st = q(s, '.typed');
+        const ct = q(c, '.typed');
+        tl.call(() => s.classList.add('focus'), null, '+=0.04');
+        typeIn(tl, st, st.dataset.text, { d: 0.22, at: '+=0.03' });
+        tl.call(() => { s.classList.remove('focus'); s.classList.add('done'); c.classList.add('focus'); }, null, '+=0.03');
+        typeIn(tl, ct, ct.dataset.text, { d: Math.min(0.6, 0.1 + ct.dataset.text.length * 0.011), at: '+=0.02' });
+        tl.call(() => { c.classList.remove('focus'); c.classList.add('done'); }, null, '+=0.02');
+      });
+    },
+  ]);
+}
+
+/* ---------- Stage 4: the public hearing ----------
+   Phase 0: announced online; the district services, the mahalla and the residents are heard.
+   Phase 1: the signed protocol, photos and video join the application's electronic file. */
+function hearing(host) {
+  const C = [300, 262];
+  const R = 168;
+  const at = (deg, r = R) => [C[0] + r * Math.cos((deg * Math.PI) / 180), C[1] + r * Math.sin((deg * Math.PI) / 180)];
+  const P = [
+    ['landmark', t('District ecology department'), 180],
+    ['building', t('District administration'), -132],
+    ['heartPulse', t('Sanitary and epidemiological service'), -90],
+    ['users', t('Mahalla chairpersons'), -48],
+    ['userCheck', t('Responsible expert'), 0],
+  ];
+  const people = [];
+  for (let i = 0; i < 13; i++) {
+    const deg = 30 + i * 10;
+    people.push(at(deg, i % 2 ? 128 : 172));
+  }
+  const pct = (x, y) => `left:${(x / 600) * 100}%;top:${(y / 500) * 100}%`;
+  const tally = [['users', t('Participants'), 52, ''], ['thumbsUp', t('In favour'), 49, 'leaf'], ['x', t('Objections'), 0, ''], ['messageCircle', t('Proposals'), 3, 'cyan']];
+  const files = [['fileText', t('Hearing protocol'), 'PDF'], ['camera', t('Photos'), '12'], ['video', t('Video recording'), 'MP4']];
+  return viz(host, `
+  <div class="viz viz-hear">
+    <div class="hr-scene viz-geo" style="--ar:600/500">
+      <svg class="geo" viewBox="0 0 600 500" aria-hidden="true">
+        <circle class="hr-ring" cx="${C[0]}" cy="${C[1]}" r="${R}"/>
+        <g class="tracks">${P.map(([, , d]) => { const [x, y] = at(d); return `<path class="route hr-sp" d="M${x} ${y} L${C[0]} ${C[1]}"/>`; }).join('')}</g>
+        <g class="node hub n-obj todo"><circle class="halo" cx="${C[0]}" cy="${C[1]}" r="66"/><circle class="disc" cx="${C[0]}" cy="${C[1]}" r="46"/>${svgIcon('school', C[0], C[1], 40)}</g>
+        ${P.map(([ic, , d], i) => { const [x, y] = at(d); return `<g class="node hr-p p${i} todo"><circle class="disc" cx="${x}" cy="${y}" r="27"/>${svgIcon(ic, x, y, 24)}</g>`; }).join('')}
+        ${people.map(([x, y]) => `<g class="hr-res"><circle cx="${x}" cy="${y}" r="15"/>${svgIcon('user', x, y, 16)}</g>`).join('')}
+      </svg>
+      ${P.map(([, l, d]) => { const [x, y] = at(d); const up = y < C[1] - 20; return `<div class="lbl hr-l ${up ? 'up' : ''}" style="${pct(x, up ? y - 31 : y + 31)}"><span>${l}</span></div>`; }).join('')}
+      <div class="lbl hr-l hr-rl" style="${pct(300, 474)}"><b>${t('Residents of the neighbouring mahallas')}</b></div>
+      <div class="hr-bub b1" style="${pct(78, 392)}">${t('The district needs a new school')}</div>
+      <div class="hr-bub b2" style="${pct(522, 392)}">${t('Please keep the trees')}</div>
     </div>
-    <div class="doc-col">
-      <ol class="prog"><li>${t('Review')}</li><li>${t('Analysis')}</li><li>${t('Draft conclusion')}</li></ol>
-      <article class="paper doc">
-        ${paperHead(t('ECOLOGICAL EXPERTISE CONCLUSION'))}
-        <span class="pd-status chip amber">${t('Draft')}</span>
-        ${paperSections()}
-        ${paperSigns()}
-      </article>
+    <div class="hr-side">
+      <section class="panel hr-note">
+        <span class="hr-ic">${icon('megaphone')}</span>
+        <div><b>${t('Public hearing')}</b><span>${t('Announced online in advance')}</span><span class="mono">25.09.2026 · 10:00</span><span>${t('Mahalla citizens’ assembly, Baliqchi district')}</span></div>
+      </section>
+      <section class="panel hr-tally">
+        ${tally.map(([ic, l, v, c]) => `<div class="ht ${c}">${icon(ic)}<b class="mono" data-v="${v}">0</b><span>${l}</span></div>`).join('')}
+      </section>
+      <section class="panel hr-proto">
+        <h3>${icon('upload')}${t('Uploaded to the electronic file')}</h3>
+        <ul>${files.map(([ic, l, m]) => `<li>${icon(ic)}<span>${l}</span><span class="mono">${m}</span><span class="ok">${icon('check')}</span></li>`).join('')}</ul>
+        <span class="att-bar"><i></i></span>
+        <span class="chip leaf hr-ok">${icon('check')}${t('Attached to application No.')} <span class="mono">${APP_NO}</span></span>
+      </section>
     </div>
   </div>`, [
     (r, tl) => {
-      tl.from(qa(r, '.src'), { autoAlpha: 0, x: -24, duration: 0.8, ease: 'expo.out', stagger: 0.14 });
+      tl.from(q(r, '.hr-note'), { autoAlpha: 0, y: 20, duration: 0.8, ease: 'expo.out' });
+      tl.from(q(r, '.n-obj'), { autoAlpha: 0, scale: 0.5, transformOrigin: '50% 50%', duration: 0.8, ease: 'back.out(1.7)' }, '<0.2');
+      tl.call(() => mark(q(r, '.n-obj'), 'now'));
+      draw(tl, q(r, '.hr-ring'), { d: 1.2, at: '<' });
+      tl.from(qa(r, '.hr-p'), { autoAlpha: 0, scale: 0.4, transformOrigin: '50% 50%', duration: 0.6, ease: 'back.out(2)', stagger: 0.12 }, '<0.3');
+      tl.from(qa(r, '.hr-l:not(.hr-rl)'), { autoAlpha: 0, y: 8, duration: 0.5, ease: 'expo.out', stagger: 0.12 }, '<0.1');
+      qa(r, '.hr-sp').forEach((p, i) => draw(tl, p, { d: 0.6, at: i ? '<0.1' : '-=0.3' }));
+      tl.call(() => qa(r, '.hr-p').forEach((p) => mark(p, 'done')));
+      tl.from(qa(r, '.hr-res'), { autoAlpha: 0, scale: 0.3, transformOrigin: '50% 50%', duration: 0.45, ease: 'back.out(2.4)', stagger: 0.05 }, '+=0.1');
+      tl.from(q(r, '.hr-rl'), { autoAlpha: 0, y: 8, duration: 0.5, ease: 'expo.out' }, '<0.3');
+      tl.fromTo(q(r, '.halo'), { scale: 0.8, autoAlpha: 0.9, transformOrigin: '50% 50%' }, { scale: 1.4, autoAlpha: 0, duration: 1.3, ease: 'power2.out' }, '<');
+      ['.b1', '.b2'].forEach((b, i) => tl.fromTo(q(r, b), { autoAlpha: 0, scale: 0.7, y: 10 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(2)' }, i ? '+=0.35' : '+=0.2'));
+      tl.from(q(r, '.hr-tally'), { autoAlpha: 0, y: 16, duration: 0.6, ease: 'expo.out' }, '<0.2');
+      qa(r, '.ht b').forEach((b, i) => {
+        const o = { v: 0 };
+        tl.to(o, { v: Number(b.dataset.v), duration: 1.1, ease: 'power2.out', onUpdate: () => { b.textContent = Math.round(o.v); } }, i ? '<' : '<0.2');
+      });
+      tl.call(() => mark(q(r, '.n-obj'), 'done'));
+    },
+    (r, tl) => {
+      tl.to([q(r, '.hr-scene'), q(r, '.hr-tally')], { opacity: 0.35, duration: 0.6, ease: 'power2.out' });
+      tl.fromTo(q(r, '.hr-proto'), { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'expo.out' }, '<0.1');
+      tl.from(qa(r, '.hr-proto li'), { autoAlpha: 0, x: -12, duration: 0.45, ease: 'expo.out', stagger: 0.15 }, '<0.25');
+      tl.to(r, { '--up': '100%', duration: 1.1, ease: 'power2.inOut' }, '+=0.1');
+      tl.fromTo(qa(r, '.hr-proto .ok'), { scale: 0 }, { scale: 1, duration: 0.35, ease: 'back.out(2.4)', stagger: 0.12 }, '>-0.2');
+      tl.fromTo(q(r, '.hr-ok'), { autoAlpha: 0, scale: 0.8 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2)' }, '+=0.1');
+    },
+  ]);
+}
+
+/* ---------- Stage 4: the conclusion, drafted on the official blank ----------
+   Phase 0: the expert's five sources and the blank, still empty.
+   Phase 1: the blank is filled in; the passport of indicators comes from the e-application. */
+function conclusion(host) {
+  const [la, lo] = SITE_COORDS[0];
+  const S = [
+    ['fileText', t('Electronic application'), t('Object, indicators, impact, map')],
+    ['mapPinned', t('Inspector’s digital site act'), t('Coordinates and nine criteria')],
+    ['userCheck', t('Expert’s site visit'), t('The expert’s own findings on the ground')],
+    ['megaphone', t('Public hearing protocol'), t('Residents’ opinion, uploaded online')],
+    ['locateFixed', t('Object coordinates'), `<span class="mono">${la.toFixed(5)}, ${lo.toFixed(5)} …</span>`],
+  ];
+  return viz(host, `
+  <div class="viz viz-concl">
+    <svg class="links" aria-hidden="true"></svg>
+    <div class="srcs">${S.map(([ic, b, s]) => `<div class="src">${icon(ic)}<div><b>${b}</b><span>${s}</span></div></div>`).join('')}</div>
+    <div class="doc-col">
+      <div class="dc-top"><ol class="prog"><li>${t('Review')}</li><li>${t('Analysis')}</li><li>${t('Draft conclusion')}</li></ol><span class="pd-status chip amber">${t('Draft')}</span></div>
+      <div class="bk-wrap">${blank('empty')}</div>
+      <span class="chip cyan dc-auto">${icon('zap')}${t('The passport of indicators is filled in from the e-application automatically')}</span>
+    </div>
+  </div>`, [
+    (r, tl) => {
+      tl.from(qa(r, '.src'), { autoAlpha: 0, x: -24, duration: 0.8, ease: 'expo.out', stagger: 0.12 });
       tl.from(q(r, '.doc-col'), { autoAlpha: 0, y: 30, duration: 0.9, ease: 'expo.out' }, '<0.2');
     },
     (r, tl) => {
-      // Connector lines from each source to the document, measured from the live layout.
+      // Connector lines from each source to the blank, measured from the live layout.
       const svg = q(r, '.links');
       const box = r.getBoundingClientRect();
-      const doc = q(r, '.doc').getBoundingClientRect();
+      const doc = q(r, '.blank').getBoundingClientRect();
       const srcs = qa(r, '.src');
       svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
       svg.innerHTML = srcs.map((s, i) => {
@@ -502,20 +796,26 @@ function conclusion(host) {
         const x1 = b.right - box.left;
         const y1 = b.top + b.height / 2 - box.top;
         const x2 = doc.left - box.left;
-        const y2 = doc.top - box.top + doc.height * (0.3 + (i * 0.48) / Math.max(srcs.length - 1, 1));
+        const y2 = doc.top - box.top + doc.height * (0.22 + (i * 0.56) / Math.max(srcs.length - 1, 1));
         const mx = (x1 + x2) / 2;
         return `<path d="M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}"/>`;
       }).join('');
-      qa(svg, 'path').forEach((p, i) => draw(tl, p, { d: 0.8, at: i ? '<0.15' : 0 }));
-      // Review, analysis, draft: each section of the form is completed in turn.
-      const secs = qa(r, '.pd-secs li');
-      qa(r, '.prog li').forEach((li, i) => {
-        tl.call(() => {
-          li.classList.add('on');
-          secs[i]?.classList.add('done');
-        }, null, i ? '+=0.55' : '+=0.1');
+      qa(svg, 'path').forEach((p, i) => draw(tl, p, { d: 0.7, at: i ? '<0.12' : 0 }));
+      const prog = qa(r, '.prog li');
+      tl.call(() => prog[0].classList.add('on'));
+      const fs = qa(r, '.bk-f');
+      const passStart = fs.findIndex((f) => f.dataset.k === 'p0');
+      fs.forEach((f, i) => {
+        if (i === passStart) {
+          tl.call(() => prog[1].classList.add('on'));
+          tl.fromTo(q(r, '.dc-auto'), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: 'expo.out' });
+        }
+        const row = f.closest('tr');
+        tl.fromTo(f, { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: row ? 0.3 : 0.4, ease: 'power2.out' }, i ? '>-0.08' : '+=0.15');
+        if (row) tl.call(() => row.classList.add('bk-auto'), null, '<');
       });
-      tl.fromTo(q(r, '.pd-status'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2.5)' }, '+=0.2');
+      tl.call(() => prog[2].classList.add('on'), null, '+=0.1');
+      tl.fromTo(q(r, '.pd-status'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2.5)' }, '+=0.15');
     },
   ]);
 }
@@ -652,33 +952,53 @@ function approval(host) {
   ]);
 }
 
-/* ---------- Stage 8: E-IMZO signing ---------- */
+/* ---------- Stage 8: E-IMZO signing on the blank ----------
+   Each signature puts its QR code on the blank: the expert's at the foot, the director's
+   "Tasdiqlayman" at the top. E-IMZO is a digital signature: no ink, no stamp pad. */
 function sign(host) {
-  // E-IMZO is a digital signature: each signature line receives its E-IMZO record, not ink.
+  const who = [[t('Ecologist expert'), SIGN_TIMES[0], '.q-exp', '.s1'], [t('Center Director'), SIGN_TIMES[1], '.q-dir', '.s2']];
   return viz(host, `
-  <div class="viz viz-paper viz-sign">
-    <article class="paper doc">
-      ${paperHead(t('ECOLOGICAL EXPERTISE CONCLUSION'))}
-      <span class="pd-status chip leaf">${icon('stamp')}${t('Finalized')}</span>
-      ${paperSections(true)}
-      ${paperSigns()}
-    </article>
+  <div class="viz viz-sign">
+    <div class="bk-wrap">${blank('filled')}</div>
+    <section class="panel ez">
+      <h3>${icon('keyRound')}E-IMZO</h3>
+      <p class="ez-sub">${t('Electronic digital signature')}</p>
+      <ol class="ez-list">
+        ${who.map(([role, time], i) => `
+          <li class="ez-i e${i}">
+            <span class="ez-ic">${icon('fingerprint')}</span>
+            <div><b>${role}</b><i class="redact w6"></i><span class="mono">${time}</span></div>
+            <span class="chip leaf ez-ok">${icon('check')}${t('Signed')}</span>
+          </li>`).join('')}
+      </ol>
+      <span class="chip leaf ez-st">${icon('stamp')}${t('Finalized in the system')}</span>
+      <p class="ez-q">${icon('qrCode')}<span>${t('The QR codes let anyone verify the conclusion online')}</span></p>
+    </section>
   </div>`, [
     (r, tl) => {
-      tl.from(q(r, '.paper'), { autoAlpha: 0, y: 30, duration: 0.9, ease: 'expo.out' });
-      qa(r, '.pd-eimzo').forEach((b) => {
-        tl.fromTo(b, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: 'expo.out' }, '+=0.35');
-        tl.fromTo(b.querySelector('.chip'), { scale: 0.6 }, { scale: 1, duration: 0.45, ease: 'back.out(2.4)' }, '<0.15');
-        tl.call(() => b.parentElement.classList.add('signed'), null, '<');
+      tl.from(q(r, '.bk-wrap'), { autoAlpha: 0, y: 30, duration: 0.9, ease: 'expo.out' });
+      tl.from(q(r, '.ez'), { autoAlpha: 0, x: 24, duration: 0.8, ease: 'expo.out' }, '<0.2');
+      tl.from(qa(r, '.ez-i'), { autoAlpha: 0, y: 8, duration: 0.5, ease: 'expo.out', stagger: 0.1 }, '<0.2');
+      who.forEach(([, , qsel, ssel], i) => {
+        const li = q(r, `.e${i}`);
+        tl.call(() => li.classList.add('now'), null, '+=0.3');
+        tl.fromTo(q(li, '.ez-ic'), { scale: 1 }, { scale: 1.16, duration: 0.25, yoyo: true, repeat: 1, ease: 'power2.out' });
+        tl.fromTo(q(li, '.ez-ok'), { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(2.4)' });
+        tl.call(() => { li.classList.remove('now'); li.classList.add('done'); }, null, '<');
+        tl.fromTo(q(r, qsel), { autoAlpha: 0, scale: 0.5 }, { autoAlpha: 1, scale: 1, duration: 0.55, ease: 'back.out(2)' }, '<0.1');
+        tl.fromTo(q(r, ssel), { autoAlpha: 0, x: -8 }, { autoAlpha: 1, x: 0, duration: 0.45, ease: 'expo.out' }, '<0.15');
+        if (i === 0) tl.fromTo(q(r, '.bk-esig > b'), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, '<');
       });
-      tl.fromTo(q(r, '.pd-status'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2.2)' }, '+=0.25');
+      tl.fromTo(q(r, '.ez-st'), { autoAlpha: 0, scale: 0.7 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: 'back.out(2.2)' }, '+=0.25');
+      tl.fromTo(q(r, '.ez-q'), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: 'expo.out' }, '<0.2');
     },
   ]);
 }
 
 /* ---------- Delivery: the applicant's phone ----------
    Phase 0: a my.gov.uz notification arrives, the application's status turns to "Conclusion ready".
-   Phase 1: the applicant opens it; the signed conclusion is there to download. */
+   Phase 1: the applicant opens it; the signed conclusion is there to download.
+   Phase 2: downloaded and opened: the same official blank, with its QR codes. */
 function phone(host) {
   return viz(host, `
   <div class="viz viz-phone">
@@ -700,7 +1020,15 @@ function phone(host) {
           <span class="ph-bell">${icon('bellRing')}</span>
           <div><span class="nt-app">MY.GOV.UZ · ${t('now')}</span><b>${t('Conclusion ready')}</b><span>${t('The conclusion on your application has been signed and issued.')}</span></div>
         </div>
+        <div class="ph-view">
+          <div class="pv-hd">${icon('fileText')}<b class="mono">${t('Conclusion')}_${APP_NO}.pdf</b><span class="chip leaf">${icon('check')}E-IMZO</span></div>
+          <div class="pv-body">${blank('signed')}</div>
+        </div>
       </div>
+    </div>
+    <div class="ph-big">
+      ${blank('signed')}
+      <span class="chip cyan pb-cap">${icon('qrCode')}${t('Scan the QR code to verify the conclusion online')}</span>
     </div>
   </div>`, [
     (r, tl) => {
@@ -720,6 +1048,24 @@ function phone(host) {
       tl.to(q(r, '.ph-dl'), { scale: 0.92, duration: 0.14, ease: 'power2.in' }, '+=0.5');
       tl.call(() => q(r, '.ph-dl').classList.add('pressed'));
       tl.to(q(r, '.ph-dl'), { scale: 1, duration: 0.5, ease: 'back.out(3)' });
+    },
+    (r, tl) => {
+      const ph = q(r, '.phone');
+      const big = q(r, '.ph-big');
+      let dx = 0;
+      tl.fromTo(q(r, '.ph-view'), { autoAlpha: 0, yPercent: 100 }, { autoAlpha: 1, yPercent: 0, duration: 0.7, ease: 'expo.out' });
+      tl.from(q(r, '.pv-body .blank'), { y: 30, duration: 1.2, ease: 'expo.out' }, '<0.2');
+      // Phone and the opened blank side by side, centred together.
+      tl.call(() => {
+        const vb = r.getBoundingClientRect();
+        const pb = ph.getBoundingClientRect();
+        const gap = pb.width * 0.14;
+        dx = -(gap + big.offsetWidth) / 2;
+        big.style.left = `${pb.right - vb.left + gap + dx}px`;
+      }, null, '+=0.2');
+      tl.to(ph, { x: () => dx, duration: 0.9, ease: 'expo.inOut' });
+      tl.fromTo(big, { autoAlpha: 0, x: -40, scale: 0.9, transformOrigin: '0% 100%' }, { autoAlpha: 1, x: 0, scale: 1, duration: 0.9, ease: 'expo.out' }, '<0.35');
+      tl.fromTo(q(r, '.pb-cap'), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: 'expo.out' }, '+=0.1');
     },
   ]);
 }
@@ -757,4 +1103,4 @@ function rail(host) {
   ]);
 }
 
-export const VISUALS = { apply, flow, record, intake, payment, assign, conclusion, review, coord, approval, sign, phone, rail };
+export const VISUALS = { apply, flow, record, inspect, intake, payment, assign, hearing, conclusion, review, coord, approval, sign, phone, rail };

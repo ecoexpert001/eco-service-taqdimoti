@@ -6,6 +6,8 @@ import {
   UserCheck, Users, UtilityPole, Waves, Wheat, Wind, X,
   Banknote, Bell, BellRing, BatteryFull, Building2, ChevronRight, ClipboardList, Download, Languages, Moon,
   Plane, Signal, Smartphone, Sun, Wallet, Wifi, Layers, TriangleAlert, Paperclip, ChevronDown,
+  School, Megaphone, MessageCircle, Camera, Video, PenLine, Upload, Calculator, HeartPulse, ThumbsUp,
+  Monitor, Fingerprint, QrCode, Zap,
 } from 'lucide';
 
 const SET = {
@@ -20,6 +22,9 @@ const SET = {
   clipboardList: ClipboardList, download: Download, languages: Languages, moon: Moon, plane: Plane, signal: Signal,
   smartphone: Smartphone, sun: Sun, wallet: Wallet, wifi: Wifi, layers: Layers, alert: TriangleAlert,
   paperclip: Paperclip, chevronDown: ChevronDown,
+  school: School, megaphone: Megaphone, messageCircle: MessageCircle, camera: Camera, video: Video,
+  penLine: PenLine, upload: Upload, calculator: Calculator, heartPulse: HeartPulse, thumbsUp: ThumbsUp,
+  monitor: Monitor, fingerprint: Fingerprint, qrCode: QrCode, zap: Zap,
 };
 
 function inner(name) {

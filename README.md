@@ -1,6 +1,6 @@
 # ECO SERVICE · The journey of one application
 
-A full-screen, step-by-step web presentation of ECO SERVICE (eco-service.uz). It follows one sample application (No. 371668581) through the eight stages of state ecological expertise, over a live 3D satellite map of Uzbekistan. 35 steps, about 6 minutes, in Uzbek, Russian and English, with a dark and a light theme.
+A full-screen, step-by-step web presentation of ECO SERVICE (eco-service.uz). It follows one sample application (No. 371668581) through the eight stages of state ecological expertise, over a live 3D satellite map of Uzbekistan. 44 steps, about 8 minutes, in Uzbek, Russian and English, with a dark and a light theme.
 
 ## Present it
 
@@ -29,7 +29,8 @@ The mouse pointer and the language / theme buttons hide themselves after two sec
 - **Facts and sample data** (application number, site coordinates, stage names, inspection criteria) are in `src/data.js`. Everything comes from the ECO SERVICE process deck.
 - **Map cameras and layers**: `src/map.js` (`CAMERAS` at the top).
 - **Restricted-zone layers** (step 12 and the expert's site check): the original KMZ files are in `data-src/kmz/` (water protection zones SMQZ, forestry lands, reservoirs, drinking groundwater deposits). After adding or replacing a KMZ, run `python tools/kmz_to_geojson.py`: it writes simplified GeoJSON to `public/data/zones/`. The presentation checks the site coordinates against these layers in the browser (inside a zone? distance to the nearest one), so the result on screen always matches the data. A new layer needs an entry in `LAYERS` (tool) and `ZONE_LAYERS` (`src/zones.js`).
-- **The animated visuals on the right**: `src/visuals.js`.
+- **The animated visuals on the right**: `src/visuals.js` (the step-by-step e-application, the inspector's digital site act, the public hearing, the conclusion, signing and the phone).
+- **The official conclusion blank**: `src/blank.js`, drawn after `preview.pdf`. Its text is translated like the rest of the deck (in Uzbek it reads as the real blank); names and TINs are masked, the QR codes are decorative. The passport of indicators is filled from the sample application data in `src/data.js` (`TEP`, `AIR`, `WATER`, …), so the form and the blank always agree. The state emblem is `public/brand/uz-emblem.png`, rendered from `preview.pdf`.
 - **Colours, type and layout**: `src/styles.css` (tokens at the top).
 
 To preview while editing, run `npm run dev` and open http://localhost:5174.
